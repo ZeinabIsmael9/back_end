@@ -10,9 +10,6 @@ session_start([
 require_once __DIR__."/routes/web.php";
 require_once __DIR__."/includes/exception_error.php";
 
-
-
-
 //var_dump(config('session.expiration_timeout'));
 
 
@@ -55,6 +52,13 @@ require_once __DIR__."/includes/exception_error.php";
 //session_delete_all();
 
 //route_init();
+
+// $encrypt =encrypt("Welcome TO PHP v8.3");
+// echo $encrypt."<br>";
+// decrypt($encrypt);
+
+//echo set_locale('ar');
+// echo session('locale');
 
 if(!empty($GLOBALS['query'])){
     //var_dump($GLOBALS['query']);

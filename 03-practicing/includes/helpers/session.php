@@ -2,12 +2,14 @@
 if(!function_exists('session')){
     function session(string $key , mixed $value=null):mixed{
         if(!is_null($value)){
-            $_SESSION[$key] = $value;
+            $_SESSION[$key] = encrypt($value);
         }
-        return isset($_SESSION[$key])?$_SESSION[$key]:'';
+        return isset($_SESSION[$key])?decrypt($_SESSION[$key]):'';
     }
 }
-
+// $encrypt =encrypt("Welcome TO PHP v8.3");
+// //echo $encrypt."<br>";
+// decrypt($encrypt);
 if(!function_exists('session_has')){
     function session_has(string $key):mixed{
         
