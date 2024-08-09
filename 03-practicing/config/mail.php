@@ -1,12 +1,11 @@
 <?php
 return [
-    'FROM_ADDRESS' => 'noreply@php.net',
-    'FROM_NAME' => 'php',
+    'FROM_ADDRESS' => 'norplay@php.net',
+    'FROM_NAME' => 'phpanonymous',
     'protocol'=>'smtp',
-    'encrypt' => 'smtp', // Use 'smtp' if you want to set SMTP settings
-    'SMTP' => 'localhost', // Change this to your SMTP server if necessary
-    'SMTP_domain' => 'localhost', // Change this to your SMTP domain
-    'SMTP_username' => '', // Your SMTP username
-    'SMTP_password' => '', // Your SMTP password
-    'SMTP_port' => '25', // Your SMTP port
+    'encrypt' => 'null', // Use 'smtp' if you want to set SMTP settings
+    'smtp_domain' => '0.0.0.0', 
+    'smtp_username' => '', 
+    'smtp_password' => '', 
+    'smtp_port' => 25, 
 ];

@@ -8,6 +8,25 @@ if(!function_exists('session')){
     }
 }
 
+if(!function_exists('session_has')){
+    function session_has(string $key):mixed{
+        
+        return isset($_SESSION[$key]);
+    }
+}
+
+
+if(!function_exists('session_flash')){
+    function session_flash(string $key , mixed $value=null):mixed{
+        if(!is_null($value)){
+            $_SESSION[$key] = $value;
+        }
+        $session = isset($_SESSION[$key])?$_SESSION[$key]:'';
+        session_forget($key);
+        return $session;
+    }
+}
+
 
 
 if(!function_exists('session_forget')){
@@ -17,6 +36,7 @@ if(!function_exists('session_forget')){
     }
     }
 }
+
 
 
 if(!function_exists('session_delete_all')){

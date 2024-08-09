@@ -1,5 +1,5 @@
 <?php
-$helpers = ['helper','db', 'session','mail'];
+$helpers = ['request','routing','helper','db', 'session','mail','translation','view'];
 foreach ($helpers as $helper) {
     require __DIR__."/helpers/" .$helper.".php";
 }

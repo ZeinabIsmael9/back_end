@@ -1,9 +1,16 @@
 <?php
 ob_start();
 require_once __DIR__."/includes/app.php";
+session_save_path(config('session.session_save_path'));
+ini_set('session.gc_probability',1);
+//ini_set('session.save_path',config('session.session_save_path'));
 session_start([
     'cookie_lifetime'=>config('session.expiration_timeout')
 ]);
+require_once __DIR__."/routes/web.php";
+require_once __DIR__."/includes/exception_error.php";
+
+
 
 
 //var_dump(config('session.expiration_timeout'));
@@ -37,15 +44,17 @@ session_start([
 // }
 
 //set Data
-session('test','test data from function ');
-//get Data
-echo session('test');
+// session('test','test data from function ');
+// //get Data
+// echo session('test');
 
 //destroy session by key name
 //session_forget('test');
 
 //destroy all session 
-session_delete_all();
+//session_delete_all();
+
+//route_init();
 
 if(!empty($GLOBALS['query'])){
     //var_dump($GLOBALS['query']);
