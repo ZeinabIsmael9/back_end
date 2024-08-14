@@ -16,5 +16,9 @@
     <input type="hidden" name="password" value="post"/>
     <input type="submit" value="Send"/>
 </form> -->
-
+<form action="<?php echo url('/upload'); ?>" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" class="form-control"/>
+    <input type="hidden" name="_gmethod" value="post"/>
+    <input type="submit" class="btn btn-success" value="Send"/>
+</form>
 <?php view('layout.footer'); ?>

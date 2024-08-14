@@ -1,14 +1,6 @@
 <?php
-ob_start();
-require_once __DIR__."/includes/app.php";
-session_save_path(config('session.session_save_path'));
-ini_set('session.gc_probability',1);
-//ini_set('session.save_path',config('session.session_save_path'));
-session_start([
-    'cookie_lifetime'=>config('session.expiration_timeout')
-]);
-require_once __DIR__."/routes/web.php";
-require_once __DIR__."/includes/exception_error.php";
+require_once __DIR__."/../includes/app.php";
+
 
 //var_dump(config('session.expiration_timeout'));
 
@@ -58,7 +50,7 @@ require_once __DIR__."/includes/exception_error.php";
 // decrypt($encrypt);
 
 //echo set_locale('ar');
-// echo session('locale');
+//echo session('locale');
 
 if(!empty($GLOBALS['query'])){
     //var_dump($GLOBALS['query']);
