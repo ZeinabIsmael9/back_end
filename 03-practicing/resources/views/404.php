@@ -3,8 +3,9 @@
     <div class="row">
         <div class="col-md-12">
             <h1>
-                404 Page not found
+                Page not found
             </h1>
+            <img src="<?php url('/assets/download.png');?> "/>
         </div>
     </div>
 </div>

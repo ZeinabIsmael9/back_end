@@ -27,25 +27,25 @@ view('layout.header', ['title' => trans('main.home')]);
     Download File
 </a> -->
 
-@if(any_errors())
+<?php if(any_errors()): ?>
 <div class="alert alert-danger">
     <ol>
-        @foreach(all_errors() as $error)
+        <?php foreach(all_errors() as $error): ?>
             <li><?php echo $error; ?></li>
-        @endforeach
+        <?php endforeach ?>
     </ol>
 </div>
-@endif
+<?php endif; ?>
 
-@php
+<?php 
 $email_valid = get_error('email');
 $mobile_valid = get_error('mobile');
 $address_valid = get_error('address');
 end_errors();
-@endphp
+?>
 
-<!-- {{ 'welcome to view engine' }} <br>
-{{ url('upload') }} -->
+<!-- <?php echo  'welcome to view engine' ?> <br>
+<?php echo  url('upload') ?> -->
 
 <form action="<?php echo url('upload'); ?>" method="post" enctype="multipart/form-data">
     <!-- <input type="file" name="image" class="form-control"/> -->

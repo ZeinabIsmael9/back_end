@@ -52,6 +52,13 @@ require_once __DIR__."/../includes/app.php";
 //echo set_locale('ar');
 //echo session('locale');
 
+//file mangement in storage folder
+//symlink(base_path('storage/files') , public_path('stroage'));
+//delete_file('storage/images/img.png'); // delete file
+// storage(); // show or download file
+// store_file ($from,$to)
+//remove_folder('storage/images'); // remove folder
+
 if(!empty($GLOBALS['query'])){
     //var_dump($GLOBALS['query']);
     mysqli_free_result($GLOBALS['query']);

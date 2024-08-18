@@ -75,5 +75,3 @@ if (!function_exists('session_delete_all')) {
         session_destroy();
     }
 }
-
-?>
