@@ -98,6 +98,19 @@ if (!function_exists('redirect')) {
     }
 }
 
+if (!function_exists('back')) {
+    /**
+     * back to a previous page.
+     *
+     * @param string $path The path to redirect to.
+     * @return void
+     */
+    function back() {
+        header('Location: '.$_SERVER['HTTP_REFERER']);
+        exit();
+    }
+}
+
 if (!function_exists('url')) {
     /**
      * Generate a full URL for a given segment.

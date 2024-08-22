@@ -1,32 +1,24 @@
-
 <?php
+// تضمين رأس الصفحة مع عنوان مأخوذ من ملف الترجمة
 view('layout.header', ['title' => trans('main.home')]);
 
-// Uncomment the following lines if needed
-// if(session_has('success')){
-//     echo session_flash('success');
-// }
+// إذا كانت هناك رسالة نجاح في الجلسة، عرضها
+if (session_has('success')) {
+    echo session_flash('success');
+}
+
+// تعيين اللغة إلى الإنجليزية
 // set_locale('en');
+
+// عرض بعض الترجمة كأمثلة
 // echo trans('main.home');
 // echo "<br>";
 // echo trans('main.add_user');
-
 ?>
 
 <h1>Home Page</h1>
 
-<!-- Uncomment the following form if needed
-<form action="<?php echo url('/back_end/03-practicing/users') ?>" method="post">
-    <input type="text" name="username"/>
-    <input type="hidden" name="password" value="post"/>
-    <input type="submit" value="Send"/>
-</form> -->
-
-<!-- Uncomment the following link if needed
-<a href="<?php echo url('storage/images/img.png') ?>">
-    Download File
-</a> -->
-
+<!-- إذا كانت هناك أي أخطاء، عرضها داخل قائمة -->
 <?php if(any_errors()): ?>
 <div class="alert alert-danger">
     <ol>
@@ -38,44 +30,47 @@ view('layout.header', ['title' => trans('main.home')]);
 <?php endif; ?>
 
 <?php 
+// الحصول على الأخطاء المتعلقة بكل حقل
 $email_valid = get_error('email');
 $mobile_valid = get_error('mobile');
 $address_valid = get_error('address');
-end_errors();
-?>
 
-<!-- <?php echo  'welcome to view engine' ?> <br>
-<?php echo  url('upload') ?> -->
+// إنهاء جلسة الأخطاء
+end_errors();
+ ?>
 
 <form action="<?php echo url('upload'); ?>" method="post" enctype="multipart/form-data">
-    <!-- <input type="file" name="image" class="form-control"/> -->
 
-    <!-- Email Field -->
+    <!-- حقل البريد الإلكتروني -->
     <label>Email</label>
-    <input type="text" name="email" value="<?php echo old('email');?>" class="form-control <?php echo !empty(get_error('email')) ? 'is-invalid' : 'is-valid'; ?>" />
+    <input type="text" name="email" value="<?php echo old('email');?>" class="form-control <?php echo !empty($email_valid) ? 'is-invalid' : 'is-valid'; ?>" />
     <div class="invalid-feedback">
-        <?php echo get_error('email'); ?>
+        <?php echo $email_valid; ?>
     </div>
     <br>
 
-    <!-- Mobile Field -->
+    <!-- حقل الهاتف -->
     <label>Mobile</label>
-    <input type="text" name="mobile" value="<?php echo old('mobile');?>" class="form-control <?php echo !empty(get_error('mobile')) ? 'is-invalid' : 'is-valid'; ?>" />
+    <input type="text" name="mobile" value="<?php echo old('mobile');?>" class="form-control <?php echo !empty($mobile_valid) ? 'is-invalid' : 'is-valid'; ?>" />
     <div class="invalid-feedback">
-        <?php echo get_error('mobile'); ?>
+        <?php echo $mobile_valid; ?>
     </div>
     <br>
 
-    <!-- Address Field -->
+    <!-- حقل العنوان -->
     <label>Address</label>
-    <input type="text" name="address" value="<?php echo old('address');?>" class="form-control <?php echo !empty(get_error('address')) ? 'is-invalid' : 'is-valid'; ?>" />
+    <input type="text" name="address" value="<?php echo old('address');?>" class="form-control <?php echo !empty($address_valid) ? 'is-invalid' : 'is-valid'; ?>" />
     <div class="invalid-feedback">
-        <?php echo get_error('address'); ?>
+        <?php echo $address_valid; ?>
     </div>
     <br>
 
+    <!-- زر الإرسال -->
     <input type="hidden" name="_method" value="post"/>
     <input type="submit" class="btn btn-success" value="Send"/>
 </form>
 
-<?php view('layout.footer'); ?>
+<?php 
+// تضمين تذييل الصفحة
+view('layout.footer'); 
+?>

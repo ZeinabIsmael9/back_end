@@ -22,7 +22,6 @@ if (session_has('locale')) {
 </head>
 
 <body>
-<!-- <?php echo 'locale is:'.session('locale'); ?> -->
 <?php set_locale(request('lang')); ?>
 
-    <?php view('layout.nav'); ?>
+<?php view('layout.nav'); ?>

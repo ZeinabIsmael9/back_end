@@ -1,4 +1,5 @@
 <?php
+include base_path('routes/admin.php');
 // echo "<hr>";
 //echo $_SERVER['REQUEST_URI'];
 // echo "<br>";

@@ -8,4 +8,8 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'users' => 'Users',
+    'email' =>  'Email',
+    'mobile' => 'Mobile',
+    'address' => 'Address',
+    'remember_me'=>'Remember Me'
 ];
