@@ -9,15 +9,15 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{aurl('dashboard')}}">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="<?php echo aurl('dashboard') ?>">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
-                {{trans('admin.dashboard')}}
+                <?php echo trans('admin.dashboard') ?>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('categories')}}">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?php echo aurl('categories') ?>">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                {{trans('admin.categories')}}
+                <?php echo trans('admin.categories') ?>
               </a>
             </li>
 
@@ -31,9 +31,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{{ url('admin/logout')}}">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?php echo  url('admin/logout') ?>">
               <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
-                {{trans('admin.logout')}}
+                <?php echo trans('admin.logout') ?>
               </a>
             </li>
           </ul>

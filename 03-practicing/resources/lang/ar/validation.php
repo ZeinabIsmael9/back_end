@@ -5,4 +5,5 @@ return [
     'integer' => ':attribute يجب ان يكون قيمة رقمية',
     'string' => ':attribute يجب ان يكون قيمة نصية',
     'numeric' =>':attribute يجب ان يكون قيمة رقمية',
+    'image' => ':attribute يجب ان تكون صورة',
 ];

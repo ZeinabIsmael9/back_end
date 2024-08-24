@@ -168,6 +168,11 @@
     </div>
 
 <main class="form-signin w-100 m-auto">
+@if(session_has('error_login'))
+<div class="alert alert-danger">
+      {{session_flash('error_login')}}
+</div>
+@endif
 
 @if(any_errors())
 <div class="alert alert-danger">
@@ -179,11 +184,6 @@
 </div>
 @endif
 
-@if(session_has('error_login'))
-<div class="alert alert-danger">
-      {{session_flash('error_login')}}
-</div>
-@endif
 
 @php
 $email_error = get_error('email'); 

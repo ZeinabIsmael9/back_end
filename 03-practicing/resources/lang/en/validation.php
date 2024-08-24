@@ -5,4 +5,6 @@ return [
     'integer' => ':attribute Must be a numeric value',
     'string' => ':attribute Must be a text value',
     'numeric' =>':attribute Must be a numeric value',
+    'image' => ':attribute Must be an image' ,
+
 ];

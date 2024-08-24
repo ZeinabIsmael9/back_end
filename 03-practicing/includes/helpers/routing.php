@@ -10,10 +10,11 @@ if (!function_exists('route_get')) {
      * @param string|null $view The view or handler associated with the route.
      * @return void
      */
-    function route_get($segment, $view = null) {
+    function route_get($segment, $view = null)
+    {
         global $routes;
         $routes['GET'][] = [
-            'segment' => '/'.public_().'/' . ltrim($segment, '/'),
+            'segment' => '/' . public_() . '/' . ltrim($segment, '/'),
             'view' => $view,
         ];
         //echo "aaaaa";
@@ -28,10 +29,11 @@ if (!function_exists('route_post')) {
      * @param string|null $view The view or handler associated with the route.
      * @return void
      */
-    function route_post($segment, $view = null) {
+    function route_post($segment, $view = null)
+    {
         global $routes;
         $routes['POST'][] = [
-            'segment' => '/'.public_().'/' . ltrim($segment, '/'),
+            'segment' => '/' . public_() . '/' . ltrim($segment, '/'),
             'view' => $view,
         ];
         //echo "aaaaa";
@@ -48,20 +50,24 @@ if (!function_exists('route_post')) {
  *
  * @return void
  */
-function route_init() {
+function route_init()
+{
     global $routes;
     $view = null;
     $GET_ROUTES = isset($routes['GET']) ? $routes['GET'] : [];
     $POST_ROUTES = isset($routes['POST']) ? $routes['POST'] : [];
 
-    // Check GET routes
-    foreach ($GET_ROUTES as $rget) {
-        if (segment() == $rget['segment']) {
-            $view = $rget['view'];
-            view($view);
-            break;
+    if (!isset($_POST['_method'])) {
+        // Check GET routes
+        foreach ($GET_ROUTES as $rget) {
+            if (segment() == $rget['segment']) {
+                $view = $rget['view'];
+                view($view);
+                break;
+            }
         }
     }
+
 
     // Check POST routes if the request method is POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -91,9 +97,15 @@ if (!function_exists('redirect')) {
      * @param string $path The path to redirect to.
      * @return void
      */
-    function redirect($path) {
-        
-        header('Location: ' . url($path));
+    function redirect($path)
+    {
+        $check_path = parse_url($path);
+        //var_dump(parse_url($path));
+        if (isset($check_path['scheme']) && isset($check_path['host'])) {
+            header('location:' . $path);
+        } else {
+            header('location:' . url($path));
+        }
         exit();
     }
 }
@@ -105,8 +117,9 @@ if (!function_exists('back')) {
      * @param string $path The path to redirect to.
      * @return void
      */
-    function back() {
-        header('Location: '.$_SERVER['HTTP_REFERER']);
+    function back()
+    {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
 }
@@ -118,10 +131,28 @@ if (!function_exists('url')) {
      * @param string $segment The URL segment to append.
      * @return string The full URL.
      */
-    function url($segment) {
+    function url($segment)
+    {
         $url = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
         $url .= $_SERVER['HTTP_HOST'];
-        return $url  . '/'.public_() .'/' .ltrim($segment, '/') ;
+        return $url  . '/' . public_() . '/' . ltrim($segment, '/');
+    }
+}
+
+
+
+if (!function_exists('aurl')) {
+    /**
+     * Generate a full Admin URL for a given segment.
+     *
+     * @param string $segment The URL segment to append.
+     * @return string The full URL.
+     */
+    function aurl($segment)
+    {
+        $url = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+        $url .= $_SERVER['HTTP_HOST'];
+        return $url  . '/' . public_() . '/' . ADMIN . '/' . ltrim($segment, '/');
     }
 }
 
@@ -131,11 +162,10 @@ if (!function_exists('segment')) {
      *
      * @return string The current URL segment.
      */
-    function segment() {
+    function segment()
+    {
         $segment = ltrim($_SERVER['REQUEST_URI'], '/');
         $removeQueryParam = explode('?', $segment);
         return '/' . $removeQueryParam[0];
     }
 }
-
-

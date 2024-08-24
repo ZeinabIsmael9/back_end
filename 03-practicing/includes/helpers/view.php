@@ -17,27 +17,27 @@ if (!function_exists('view')) {
         // example for clean code
         $file = config('view.path') .'/'.str_replace('.','/', $path) .'.php';
         if (file_exists($file)) {
-            if(!is_null($vars)&& is_array($vars)){
-                foreach($vars as $key=>$value){
-                    ${$key} = $value;
-                }
-            }
             $view =  $file;
         } else {
             $view = config('view.path') . '/404.php';
         }
-        view_engine($view);
+        view_engine($view,$vars);
     }
 }
 if (!function_exists('view_engine')) {
-    function view_engine(string $view) {
+    function view_engine(string $view, array $vars=null) {
+        if(!is_null($vars)&& is_array($vars)){
+            foreach($vars as $key=>$value){
+                ${$key} = $value;
+            }
+        }
         
         // Split the view file path to extract the file name
-        $file_path = explode('/', $view);
-        $file_name = end($file_path);
-
-        // Define the path to save the processed file in the storage directory
-        $save_to_storage = base_path('storage/views/' . $file_name);
+        // $file_path = explode('/', $view);
+        // $file_name = end($file_path);
+        $file_hash_name = md5($view);
+        $save_to_storage = base_path('storage/views/' . $file_hash_name.'.php');
+        
         //if(!file_exists($save_to_storage)){
         // Read the contents of the view file
         $file = file_get_contents($view);
