@@ -1,6 +1,7 @@
 <?php
-view('admin.layouts.header',['title'=>trans('admin.categories')]);
-$categories = db_paginate($GLOBALS['connect'],'categories','',10);
+view('admin.layouts.header', ['title' => trans('admin.categories')]);
+$categories = db_paginate($GLOBALS['connect'], 'categories', '', 10);
+
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -21,16 +22,19 @@ $categories = db_paginate($GLOBALS['connect'],'categories','',10);
             </thead>
             <tbody>
                 <tr>
-                    <?php while ($category = mysqli_fetch_assoc($categories['query'])):?>
+                    <?php while ($category = mysqli_fetch_assoc($categories['query'])): ?>
                         <td><?php echo  $category['id']  ?></td>
                         <td><?php echo  $category['name']  ?></td>
-                        <td><?php echo  $category['icon']  ?></td>
+                        <td>
+                            <?php echo image(storage_url($category['icon'] ??'')) ?>
+                        </td>
                         <td><?php echo  $category['description']  ?></td>
                         <td>
-                            edit + delete
-                        </td>
+                            <a href="<?php echo  aurl('categories/show?id='.$category['id'])  ?>"><i class="fa-regular fa-eye"></i></a>
+                            <a href="<?php echo  aurl('categories/edit?id='.$category['id'])  ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <?php echo delete_record(aurl('categories/delete?id='.$category['id'])) ?>                        </td>
                 </tr>
-                <?php endwhile;?>
+            <?php endwhile; ?>
             </tbody>
         </table>
     </div>

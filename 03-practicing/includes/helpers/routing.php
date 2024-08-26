@@ -110,6 +110,22 @@ if (!function_exists('redirect')) {
     }
 }
 
+
+if (!function_exists('redirect_if')) {
+    /**
+     * Redirect if to a specified URL path.
+     *
+     * @param string $path The path to redirect to.
+     * @return void
+     */
+    function redirect_if(bool $statement,string $url)
+    {
+        if($statement){
+            redirect($url);
+        }
+    }
+}
+
 if (!function_exists('back')) {
     /**
      * back to a previous page.
