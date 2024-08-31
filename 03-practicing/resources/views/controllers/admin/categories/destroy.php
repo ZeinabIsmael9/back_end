@@ -7,4 +7,5 @@ if(!empty($category['icon'])){
 }
 
 db_delete('categories', request('id'));
+session('success',trans('admin.deleted'));
 redirect(aurl('categories'));

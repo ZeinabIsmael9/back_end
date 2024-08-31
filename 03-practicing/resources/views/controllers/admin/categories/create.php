@@ -14,4 +14,5 @@ $data['icon'] = store_file($data['icon'], 'categories/' . $file_info['hash_name'
 //var_dump($data);
 db_create('categories', $data);
 session_flash('old');
+session('success',trans('admin.added'));
 redirect(aurl('categories'));

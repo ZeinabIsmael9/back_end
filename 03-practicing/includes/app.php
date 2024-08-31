@@ -29,7 +29,7 @@ if (!$connect) {
     die("Connection failed: " . mysqli_connect_error());
 }
 //echo "Connection successful";
-$user = db_paginate($connect,"user","",2);
+ $user = db_paginate($connect,"user","",2);
 // print_r($user);
 
 

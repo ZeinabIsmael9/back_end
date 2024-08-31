@@ -26,4 +26,6 @@ if (!empty($data['icon']['tmp_name'])) {
 
 //var_dump($data);
 db_update('categories',$data,request('id'));
+session('success',trans('admin.updated'));
 redirect(aurl('categories/edit?id='.request('id')));
+

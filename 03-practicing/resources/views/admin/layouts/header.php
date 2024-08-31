@@ -33,6 +33,20 @@
     <link href="{{ url('/assets/admin/css/style.css') }}" rel="stylesheet">
     <link href="{{ url('/assets/admin/css/headers.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
+    <style>
+            
+            .ck-editor__editable[role="textbox"] {
+                /* Editing area */
+                min-height: 200px;
+            }
+            .ck-content .image {
+                /* Block images */
+                max-width: 80%;
+                margin: 20px auto;
+            }
+        </style>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -55,3 +69,14 @@
     view('admin.layouts.navbar');
     view('admin.layouts.sidebar');
     ?>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    @if(any_errors())
+    <div class="alert alert-danger">
+        <ol>
+            @foreach(all_errors() as $error)
+            <li><?php echo $error; ?></li>
+            @endforeach
+        </ol>
+    </div>
+    @endif

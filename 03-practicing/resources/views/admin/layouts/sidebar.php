@@ -17,7 +17,22 @@
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('categories')}}">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                <i class="fa-solid fa-list-ul"></i>
                 {{trans('admin.categories')}}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('news')}}">
+                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                <i class="fa-regular fa-newspaper"></i>
+                {{trans('admin.news')}}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('users')}}">
+                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                <i class="fa-regular fa-user"></i>
+                  {{trans('admin.users')}}
               </a>
             </li>
 
@@ -27,13 +42,15 @@
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
-                Settings
+                <i class="fa-solid fa-gear"></i>
+                  Settings
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{ url('admin/logout')}}">
               <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
-                {{trans('admin.logout')}}
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+              {{trans('admin.logout')}}
               </a>
             </li>
           </ul>

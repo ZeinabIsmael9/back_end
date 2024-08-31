@@ -24,4 +24,7 @@
 </script>
     </body>
 </html>
+@php
+    end_errors();
+@endphp
 

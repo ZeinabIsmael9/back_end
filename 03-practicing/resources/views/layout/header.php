@@ -19,9 +19,21 @@ if (session_has('locale')) {
     <?php else: ?>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <?php endif; ?>
+
 </head>
 
 <body>
 <?php set_locale(request('lang')); ?>
 
+
 <?php view('layout.nav'); ?>
+
+@if(any_errors())
+    <div class="alert alert-danger">
+        <ol>
+            @foreach(all_errors() as $error)
+            <li><?php echo $error; ?></li>
+            @endforeach
+        </ol>
+    </div>
+    @endif
