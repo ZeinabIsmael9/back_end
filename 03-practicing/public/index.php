@@ -59,10 +59,18 @@ require_once __DIR__."/../includes/app.php";
 // store_file ($from,$to)
 //remove_folder('storage/images'); // remove folder
 
+
+if(config('database.strict')){
+    db_setting_strict();
+}
+
+
+
 if(!empty($GLOBALS['query'])){
     //var_dump($GLOBALS['query']);
     mysqli_free_result($GLOBALS['query']);
 }
+
 
 mysqli_close($connect);
 //ob_end_clean();

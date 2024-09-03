@@ -1,21 +1,13 @@
 <?php
-$category = db_find('categories', request('category_id'));
-redirect_if(empty($category), url('/'));
-$news = db_paginate($GLOBALS['connect'],'news','where news.category_id="'.$category['id'].'"',12);
-
+redirect_if(empty(request('year')),url('/'));
+$news = db_paginate($GLOBALS['connect'], 'news', "WHERE year(created_at) = ".request("year"));
+// var_dump($news);
 ?>
 
 <?php
-view('front.layouts.header', ['title' => $category['name']]);
+view('front.layouts.header', ['title' => request('year')]);
 
 ?>
-
-<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-    <div class="col-lg-6 px-0">
-        <h1 class="display-4 fst-italic"><?= htmlspecialchars($category['name']) ?></h1>
-        <p class="lead my-3"><?= htmlspecialchars($category['description']) ?></p>
-    </div>
-</div>
 
 <div class="row mb-2">
     <?php 
@@ -28,7 +20,7 @@ view('front.layouts.header', ['title' => $category['name']]);
             <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary-emphasis"><?= htmlspecialchars($category['name']) ?></strong>
+                        <!-- <strong class="d-inline-block mb-2 text-primary-emphasis"><?= htmlspecialchars($news['name']) ?></strong> -->
                         <h3 class="mb-0"><?= htmlspecialchars($row['title']) ?></h3>
                         <div class="mb-1 text-body-secondary"><?= htmlspecialchars($row['created_at']) ?></div>
                         <p class="card-text mb-auto"><?= htmlspecialchars($row['description']) ?></p>
@@ -42,9 +34,7 @@ view('front.layouts.header', ['title' => $category['name']]);
                         <?php
                         if (!empty($row['image'])) {
                             $img = url('storage/' . $row['image']);
-                        // } elseif (!empty($category['icon'])) {
-                        //     $img = url('storage/' . $category['icon']);
-                        } else {
+                      } else {
                             $img = url('assets/image/icon.png');
                         }
                         ?>

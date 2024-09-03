@@ -4,4 +4,5 @@ return [
     'username' => 'root',
     'password' => '',
     'dbname' => 'project',
+    'strict'=>true,
 ];

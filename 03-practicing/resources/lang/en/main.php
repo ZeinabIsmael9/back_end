@@ -19,4 +19,6 @@ return [
     'add'=>"Add",
     'comment'=>"Comment",
     'news_id' =>'News',
+    'archive'=>"Archive",
+    'latest_news'=>'Latest News',
 ];

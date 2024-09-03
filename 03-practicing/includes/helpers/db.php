@@ -239,3 +239,13 @@ if (!function_exists('db_paginate')) {
 //     echo $row['email']."<br>";
 // }
 // echo $user['render'];
+
+if (!function_exists('db_setting_strict')) {
+    function db_setting_strict() {
+        global $connect; // Use the `global` keyword to access the $connect variable
+        $currentSqlMode = mysqli_query($connect, "SELECT @@sql_mode");
+        $currentSqlMode = mysqli_fetch_assoc($currentSqlMode)['@@sql_mode'];
+        $newSqlMode = str_replace('ONLY_FULL_GROUP_BY', '', $currentSqlMode);
+        mysqli_query($connect, "SET GLOBAL sql_mode='$newSqlMode'");
+    }
+}
