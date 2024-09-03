@@ -79,12 +79,14 @@ function route_init()
         }
         // If POST route is not found, show 404 error
         if (!is_null(segment()) && !in_array(segment(), array_column($POST_ROUTES, 'segment'))) {
+            http_response_code(404);
             view('404');
             exit();
         }
         if ($view) {
             view($view);
         } else {
+            http_response_code(404);
             echo "<h1>404 Page Not Found</h1>";
         }
     }

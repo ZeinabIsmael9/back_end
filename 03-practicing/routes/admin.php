@@ -27,6 +27,14 @@ route_post(ADMIN . '/categories/delete', 'controllers.admin.categories.destroy')
 
 
 
+//comments crud
+route_get(ADMIN . '/comments', 'admin.comments.index');
+route_get(ADMIN . '/comments/show', 'admin.comments.show');
+route_get(ADMIN . '/comments/show', 'admin.comments.show');
+route_get(ADMIN . '/comments/edit', 'admin.comments.edit');
+route_post(ADMIN . '/comments/edit', 'controllers.admin.comments.update');
+route_post(ADMIN . '/comments/delete', 'controllers.admin.comments.destroy');
+
 
 //news CDUD
 route_get(ADMIN . '/news', 'admin.news.index');

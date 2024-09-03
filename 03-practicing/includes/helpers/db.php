@@ -95,6 +95,7 @@ if (!function_exists('db_find')) {
 if (!function_exists('db_frist')) {
     function db_frist(string $table, string $query_str,string $select='*'): mixed
     {
+        $sql = "SELECT $select FROM $table $query_str";
         $query = mysqli_query($GLOBALS['connect'], "select ".$select." from " . $table . " " . $query_str);
         $result = mysqli_fetch_assoc($query);
         $GLOBALS['query'] = $query;
@@ -131,33 +132,51 @@ if (!function_exists('db_get')) {
  * @param int $limit
  * @return array
  */
-if (!function_exists('render_paginate' )) {
-    function render_paginate(int $total_page): string
+if (!function_exists('render_paginate')) {
+    /**
+     * Render a pagination control.
+     *
+     * @param int   $total_page The total number of pages.
+     * @param array $appends    An array of query string parameters to append to the pagination links.
+     *
+     * @return string The rendered pagination control HTML.
+     */
+    function render_paginate(int $total_page, ): string
     {
-        $current_page = !empty(request('page')) ? (int)request('page') : 1;
+        $request_str = '';
+        // if (!empty($appends)) {
+        //     foreach ($appends as $key => $val) {
+        //         $request_str .= $key . '=' . $val['value'] . '&';
+        //     }
+        // }
+
+        // Remove the trailing '&' from the query string
+        //$request_str .= 'page=' ;
+        // var_dump($request_str);
+        $current_page = !empty(request('page')) ? (int) request('page') : 1;
         $html = '<ul class="pagination pagination-md justify-content-center" dir="ltr">';
 
         $previous_disabled = $current_page == 1 ? ' disabled' : '';
         $html .= '<li class="page-item' . $previous_disabled . '">
-                    <a class="page-link" href="?page=' . ($current_page - 1) . '" aria-label="Previous">
+                    <a class="page-link" href="?page=' . ($current_page - 1) . '&' . $request_str . '" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                   </li>';
 
         for ($i = 1; $i <= $total_page; $i++) {
             $active = $current_page == $i ? ' active' : '';
-            $html .= '<li class="page-item' . $active . '"><a href="?page=' . $i . '" class="page-link">' . $i . '</a></li>';
+            $html .= '<li class="page-item' . $active . '"><a href="?page=' . $i . '&' . $request_str . '" class="page-link">' . $i . '</a></li>';
         }
 
         $next_disabled = $current_page == $total_page ? ' disabled' : '';
         $html .= '<li class="page-item' . $next_disabled . '">
-                    <a class="page-link" href="?page=' . ($current_page + 1) . '" aria-label="Next">
+                    <a class="page-link" href="?page=' . ($current_page + 1) . '&' . $request_str . '" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                   </li>';
 
         $html .= '</ul>';
-        return $html;
+        return $total_page > 0 ? $html : "";
     }
 }
 

@@ -12,25 +12,9 @@ if (session_has('success')) {
 // echo trans('main.add_user');
 ?>
 
+
+
 <h1>Home Page</h1>
-
-@if(any_errors())
-<div class="alert alert-danger">
-    <ol>
-        @foreach(all_errors() as $error)
-            <li><?php echo $error; ?></li>
-        @endforeach
-    </ol>
-</div>
-@endif
-
-@php
-$email_valid = get_error('email');
-$mobile_valid = get_error('mobile');
-$address_valid = get_error('address');
-
-end_errors();
-@endphp
 
 <form action="<?php echo url('upload'); ?>" method="post" enctype="multipart/form-data">
 

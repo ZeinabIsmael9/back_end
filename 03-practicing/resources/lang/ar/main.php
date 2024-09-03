@@ -12,6 +12,14 @@ return [
     'mobile' => 'رقم الهاتف',
     'address' => 'العنوان',
     'password' => 'كلمة المرور',
-    'remember_me'=>'تذكرني '
+    'remember_me'=>'تذكرني ',
+    'sitename'=>'الاخبار',
+    'news'=>'الاخبار',
+    'read_more'=>'قراءة المزيد',
+    'write_comment'=>'اكتب تعليقك',
+    'comment'=>'تعليقات',
+    'name'=>"الاسم",
+    'add'=>"أضف",
+    'news_id' =>'خبر',
 
 ];

@@ -29,6 +29,13 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('comments')}}">
+                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+                <i class="fa-regular fa-comments"></i>
+                {{trans('main.comment')}}
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{aurl('users')}}">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                 <i class="fa-regular fa-user"></i>

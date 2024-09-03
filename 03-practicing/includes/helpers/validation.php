@@ -11,6 +11,7 @@ if (!function_exists('validation')) {
             $final_attr = isset($trans[$attribute]) ? $trans[$attribute] : $attribute;
 
             foreach (explode('|', $rules) as $rule) {
+                // var_dump($rule);
                 if ($rule == 'email' && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
                     $attribute_validate[] = str_replace(':attribute', $final_attr, trans('validation.email'));
                 } elseif ($rule == 'required' && (is_null($value) || empty($value) || (isset($value['tmp_name']) && empty($value['tmp_name'])))) {
@@ -48,6 +49,26 @@ if (!function_exists('validation')) {
                             $attribute_validate[] = str_replace(':attribute', $final_attr, trans('validation.unique'));
                         }
                     }
+                } elseif (preg_match('/^exists:/i', $rule)) {
+                    $ex_rule = explode(':', $rule);
+                    if (count($ex_rule) > 1 && isset($ex_rule[1])) {
+                        $get_exists_info = explode(',', $ex_rule[1]);
+                        $table = $get_exists_info[0];
+                        //var_dump($table);
+                        $column = isset($get_exists_info[1]) ? $get_exists_info[1] : $attribute;
+                        
+                        if (isset($get_exists_info[2])) {
+                            $sql = "WHERE " . $column . "='" . $value . "'";
+                        } else {
+                            $sql = "WHERE id='" . $value . "'";
+                        }
+                        //var_dump($sql);
+                        $check_exists_db = db_frist($table, $sql);
+
+                        if (empty($check_exists_db)) {
+                            $attribute_validate[] = str_replace(':attribute', $final_attr, trans('validation.exists'));
+                        }
+                    }
                 }
             
             }
@@ -57,7 +78,7 @@ if (!function_exists('validation')) {
             }
             
         }
-        if (!empty($validations)) {
+        if (count($validations)>0) {
             if ($http_header == 'redirect') {
                 session('errors', json_encode($validations));
                 session('old', json_encode($values));
@@ -67,7 +88,10 @@ if (!function_exists('validation')) {
                     back();
                 }
             } elseif ($http_header == 'api') {
-                return json_encode($validations, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                response($validations ,422);
+            //     header('Content-Type: application/json; charset=utf-8');
+            //     http_response_code(422);
+            //     echo json_encode($validations, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             }
         } else {
             return $values;

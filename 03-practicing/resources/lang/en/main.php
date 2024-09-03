@@ -11,5 +11,12 @@ return [
     'email' =>  'Email',
     'mobile' => 'Mobile',
     'address' => 'Address',
-    'remember_me'=>'Remember Me'
+    'remember_me'=>'Remember Me',
+    'sitename'=>'Site Name',
+    'read_more'=>'Read More',
+    'write_comment'=>'Write Comment ',
+    'name'=>"Name",
+    'add'=>"Add",
+    'comment'=>"Comment",
+    'news_id' =>'News',
 ];
