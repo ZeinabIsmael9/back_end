@@ -1,0 +1,20 @@
+{
+    "name": "mypackage/oop",
+    "description": "any desc",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mypackage\\Oop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zeinab Ismael",
+            "email": "153861416+ZeinabIsmael9@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "version": "1.2"
+}

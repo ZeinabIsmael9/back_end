@@ -1,0 +1,37 @@
+{
+    "packages": [
+        {
+            "name": "mypackage/oop",
+            "version": "1.2",
+            "version_normalized": "1.2.0.0",
+            "dist": {
+                "type": "path",
+                "url": "mypackage",
+                "reference": "aaf9485e2dee9b058d362a38a2f736cdf59c46e7"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Mypackage\\Oop\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zeinab Ismael",
+                    "email": "153861416+ZeinabIsmael9@users.noreply.github.com"
+                }
+            ],
+            "description": "any desc",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../mypackage/oop"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

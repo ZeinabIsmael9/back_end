@@ -1,0 +1,57 @@
+{
+    "name": "my/project",
+    "description": "this project to learn psr and work with php and oop",
+    "type": "project",
+    "license": "MIT",
+    "keywords": ["php", "oop", "logging", "events", "database"],
+    "homepage": "https://site.com",
+    "time": "2024-01-01 23:00:00",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "mypackage"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "My\\Project\\": "app/"
+        },
+        "classmap": ["app/*/"],
+        "exclude-from-classmap": ["app/Controllers/"],
+        "files": ["app/helper.php"]
+    },
+    "authors": [
+        {
+            "name": "Zeinab Ismael",
+            "email": "153861416+ZeinabIsmael9@users.noreply.github.com",
+            "homepage": "https://www.naderman.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Zeinab",
+            "email": "ZeinabIsmael9@gmail.com",
+            "homepage": "https://www.naderman.de",
+            "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/phpdoctrine"
+        },
+        {
+            "type": "tidelift",
+            "url": "https://tidelift.com/subscription/pkg/packagist-doctrine_doctrine-bundle"
+        },
+        {
+            "type": "other",
+            "url": "https://www.doctrine-project.org/sponsorship.html"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.2",
+        "mypackage/oop":"*"
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "94df36ff1f06d650cceb36d93b84e1b6",
+    "packages": [
+        {
+            "name": "mypackage/oop",
+            "version": "1.2",
+            "dist": {
+                "type": "path",
+                "url": "mypackage",
+                "reference": "aaf9485e2dee9b058d362a38a2f736cdf59c46e7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mypackage\\Oop\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zeinab Ismael",
+                    "email": "153861416+ZeinabIsmael9@users.noreply.github.com"
+                }
+            ],
+            "description": "any desc",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^8.2"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
