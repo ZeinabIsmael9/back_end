@@ -1,0 +1,19 @@
+{
+    "name": "zeinabismael/elfarmework",
+    "description": "frame work",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elfarmework\\": "framework/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zeinab Ismel"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "version": "1.0"
+}

@@ -1,0 +1,36 @@
+{
+    "packages": [
+        {
+            "name": "zeinabismael/elfarmework",
+            "version": "1.0",
+            "version_normalized": "1.0.0.0",
+            "dist": {
+                "type": "path",
+                "url": "elframework",
+                "reference": "a9f7370a8ea894ee80515749ebc96c47365a05c1"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Elfarmework\\": "framework/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zeinab Ismel"
+                }
+            ],
+            "description": "frame work",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../zeinabismael/elfarmework"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

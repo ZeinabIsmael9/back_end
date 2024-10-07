@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "64224dc0a9018871e674c28805e853af",
+    "packages": [
+        {
+            "name": "zeinabismael/elfarmework",
+            "version": "1.0",
+            "dist": {
+                "type": "path",
+                "url": "elframework",
+                "reference": "a9f7370a8ea894ee80515749ebc96c47365a05c1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Elfarmework\\": "framework/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zeinab Ismel"
+                }
+            ],
+            "description": "frame work",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.3"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
