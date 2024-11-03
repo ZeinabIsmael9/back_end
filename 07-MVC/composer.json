@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "App\\": "/app"
+            "App\\": "app/"
         }
     },
     "authors": [
@@ -15,7 +15,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.2.12",
         "zeinabismael/elfarmework": "1.0"
     },
     "version": "1.0",

@@ -5,12 +5,16 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Elfarmework\\": "framework/"
-        }
+            "Elfarmework\\": "framework/",
+            "Illuminates\\": "illuminates/"
+        },
+        "files": [
+            "/helpers/elframework_helpers.php"
+        ]
     },
     "authors": [
         {
-            "name": "Zeinab Ismel"
+            "name": "Zeinab Ismeal"
         }
     ],
     "minimum-stability": "dev",

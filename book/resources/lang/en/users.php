@@ -1,0 +1,13 @@
+<?php 
+return[
+    'name'=>'Name',
+    "email"=>'Email',
+    "mobile"=>'Mobile',
+    "password"=>'Password',
+    'user_type'=>'UserType',
+    'users'=>'Users',
+    'user'=>'User',
+    'admin'=>'Admin',
+    'add'=>'Add',
+    'create'=>'Create',
+];

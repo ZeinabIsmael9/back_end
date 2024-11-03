@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64224dc0a9018871e674c28805e853af",
+    "content-hash": "25d296b0a6a44f645e612e7888b134d3",
     "packages": [
         {
             "name": "zeinabismael/elfarmework",
@@ -12,20 +12,24 @@
             "dist": {
                 "type": "path",
                 "url": "elframework",
-                "reference": "a9f7370a8ea894ee80515749ebc96c47365a05c1"
+                "reference": "5ff5b69aba321d1a634aca977584a4b3a1657a60"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Elfarmework\\": "framework/"
-                }
+                    "Elfarmework\\": "framework/",
+                    "Illuminates\\": "illuminates/"
+                },
+                "files": [
+                    "/helpers/elframework_helpers.php"
+                ]
             },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Zeinab Ismel"
+                    "name": "Zeinab Ismeal"
                 }
             ],
             "description": "frame work",
@@ -41,7 +45,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.3"
+        "php": ">=8.2.12"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

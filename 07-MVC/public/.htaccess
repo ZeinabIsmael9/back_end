@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews +Indexes
+    </IfModule>
+    RewriteEngine On
+
+    # Redirect trailing slashes to avoid duplicate content
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Redirect all requests to index.php
+    RewriteRule ^ index.php [L]
+</IfModule>

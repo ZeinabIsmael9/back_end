@@ -7,21 +7,25 @@
             "dist": {
                 "type": "path",
                 "url": "elframework",
-                "reference": "a9f7370a8ea894ee80515749ebc96c47365a05c1"
+                "reference": "5ff5b69aba321d1a634aca977584a4b3a1657a60"
             },
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Elfarmework\\": "framework/"
-                }
+                    "Elfarmework\\": "framework/",
+                    "Illuminates\\": "illuminates/"
+                },
+                "files": [
+                    "/helpers/elframework_helpers.php"
+                ]
             },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Zeinab Ismel"
+                    "name": "Zeinab Ismeal"
                 }
             ],
             "description": "frame work",

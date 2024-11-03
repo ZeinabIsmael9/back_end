@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Illuminates\\' => array($vendorDir . '/zeinabismael/elfarmework/illuminates'),
     'Elfarmework\\' => array($vendorDir . '/zeinabismael/elfarmework/framework'),
-    'App\\' => array('/app'),
+    'App\\' => array($baseDir . '/app'),
 );

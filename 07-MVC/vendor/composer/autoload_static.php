@@ -6,7 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitce5a02c072e481abf961c6e1ad140220
 {
+    public static $files = array (
+        'fa834c7dc44636c79c6243499ba823c6' => __DIR__ . '/..' . '/zeinabismael/elfarmework/helpers/elframework_helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'I' => 
+        array (
+            'Illuminates\\' => 12,
+        ),
         'E' => 
         array (
             'Elfarmework\\' => 12,
@@ -18,13 +26,17 @@ class ComposerStaticInitce5a02c072e481abf961c6e1ad140220
     );
 
     public static $prefixDirsPsr4 = array (
+        'Illuminates\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zeinabismael/elfarmework/illuminates',
+        ),
         'Elfarmework\\' => 
         array (
             0 => __DIR__ . '/..' . '/zeinabismael/elfarmework/framework',
         ),
         'App\\' => 
         array (
-            0 => '/app',
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

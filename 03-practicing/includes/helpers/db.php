@@ -124,14 +124,6 @@ if (!function_exists('db_get')) {
 
 
 
-/**
- * Search multiple and pagination rows Data from database
- * @param string $table
- * @param int $id
- * @param string $query_str
- * @param int $limit
- * @return array
- */
 if (!function_exists('render_paginate')) {
     /**
      * Render a pagination control.
@@ -141,21 +133,24 @@ if (!function_exists('render_paginate')) {
      *
      * @return string The rendered pagination control HTML.
      */
-    function render_paginate(int $total_page, ): string
+    function render_paginate(int $total_page, array $appends = []): string
     {
         $request_str = '';
-        // if (!empty($appends)) {
-        //     foreach ($appends as $key => $val) {
-        //         $request_str .= $key . '=' . $val['value'] . '&';
-        //     }
-        // }
+        
+        // Handle additional query string parameters if provided
+        if (!empty($appends)) {
+            foreach ($appends as $key => $val) {
+                $request_str .= $key . '=' . urlencode($val) . '&'; // Encoding values for safety
+            }
+        }
 
-        // Remove the trailing '&' from the query string
-        //$request_str .= 'page=' ;
-        // var_dump($request_str);
+        // Remove the trailing '&' from the query string, if present
+        $request_str = rtrim($request_str, '&');
+
         $current_page = !empty(request('page')) ? (int) request('page') : 1;
         $html = '<ul class="pagination pagination-md justify-content-center" dir="ltr">';
 
+        // Previous button logic
         $previous_disabled = $current_page == 1 ? ' disabled' : '';
         $html .= '<li class="page-item' . $previous_disabled . '">
                     <a class="page-link" href="?page=' . ($current_page - 1) . '&' . $request_str . '" aria-label="Previous">
@@ -163,11 +158,15 @@ if (!function_exists('render_paginate')) {
                     </a>
                   </li>';
 
+        // Loop through pages
         for ($i = 1; $i <= $total_page; $i++) {
             $active = $current_page == $i ? ' active' : '';
-            $html .= '<li class="page-item' . $active . '"><a href="?page=' . $i . '&' . $request_str . '" class="page-link">' . $i . '</a></li>';
+            $html .= '<li class="page-item' . $active . '">
+                        <a href="?page=' . $i . '&' . $request_str . '" class="page-link">' . $i . '</a>
+                      </li>';
         }
 
+        // Next button logic
         $next_disabled = $current_page == $total_page ? ' disabled' : '';
         $html .= '<li class="page-item' . $next_disabled . '">
                     <a class="page-link" href="?page=' . ($current_page + 1) . '&' . $request_str . '" aria-label="Next">
