@@ -22,7 +22,7 @@
         'zeinabismael/elfarmework' => array(
             'pretty_version' => '1.0',
             'version' => '1.0.0.0',
-            'reference' => '5ff5b69aba321d1a634aca977584a4b3a1657a60',
+            'reference' => '3ad0a5cb6055b875e3ae109356e0cc942d6a9834',
             'type' => 'library',
             'install_path' => __DIR__ . '/../zeinabismael/elfarmework',
             'aliases' => array(),

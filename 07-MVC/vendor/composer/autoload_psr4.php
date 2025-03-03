@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Illuminates\\' => array($vendorDir . '/zeinabismael/elfarmework/illuminates'),
     'Elfarmework\\' => array($vendorDir . '/zeinabismael/elfarmework/framework'),
+    'Contracts\\' => array($vendorDir . '/zeinabismael/elfarmework/Contracts'),
     'App\\' => array($baseDir . '/app'),
 );

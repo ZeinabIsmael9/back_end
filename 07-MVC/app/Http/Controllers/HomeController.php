@@ -11,4 +11,8 @@ class HomeController
     {
         echo 'Welcome To about page!';
     }
+    public function article($id)
+    {
+        echo 'Welcome To article page where id ='.$id;
+    }
 }

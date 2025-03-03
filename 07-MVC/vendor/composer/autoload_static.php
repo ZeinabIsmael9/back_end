@@ -19,6 +19,10 @@ class ComposerStaticInitce5a02c072e481abf961c6e1ad140220
         array (
             'Elfarmework\\' => 12,
         ),
+        'C' => 
+        array (
+            'Contracts\\' => 10,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -33,6 +37,10 @@ class ComposerStaticInitce5a02c072e481abf961c6e1ad140220
         'Elfarmework\\' => 
         array (
             0 => __DIR__ . '/..' . '/zeinabismael/elfarmework/framework',
+        ),
+        'Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zeinabismael/elfarmework/Contracts',
         ),
         'App\\' => 
         array (

@@ -99,7 +99,6 @@ echo "<br>";
 echo 2<=> 2;
 echo "<br>";
 echo 1<=> 0;
-
 echo "<hr>";
 
 // Part 5

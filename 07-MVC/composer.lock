@@ -12,13 +12,14 @@
             "dist": {
                 "type": "path",
                 "url": "elframework",
-                "reference": "5ff5b69aba321d1a634aca977584a4b3a1657a60"
+                "reference": "3ad0a5cb6055b875e3ae109356e0cc942d6a9834"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Elfarmework\\": "framework/",
-                    "Illuminates\\": "illuminates/"
+                    "Illuminates\\": "illuminates/",
+                    "Contracts\\": "Contracts/"
                 },
                 "files": [
                     "/helpers/elframework_helpers.php"
