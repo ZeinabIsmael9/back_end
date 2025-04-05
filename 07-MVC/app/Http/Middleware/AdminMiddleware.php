@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Contracts\Middleware\Contract;
 
-class SimpleMiddleware implements Contract
+class AdminMiddleware implements Contract
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class SimpleMiddleware implements Contract
      */
     public function handle($request, $next, ...$role)
     {
-        if ($role[0] == 'simple') {
+        if ($role[0] == 'admin') {
             header('Location: ' . url('about'));
             exit;
         }
