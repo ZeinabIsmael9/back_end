@@ -2,6 +2,7 @@
 
 namespace Illuminates\Router;
 
+use Illuminates\Logs\Log;
 use Illuminates\Middleware\Middleware;
 
 class Router
@@ -12,16 +13,6 @@ class Router
     protected static $routes = [];
     protected static $groupAttributes = [];
 
-    /**
-     * @var string $public
-     */
-    private static $public;
-
-    public static function public_path($bind = 'public'): string
-    {
-        static::$public = $bind;
-        return static::$public;
-    }
 
     /**
      * Adds a route to the routing table.
@@ -46,6 +37,11 @@ class Router
         ];
     }
 
+    /**
+     * @param [mixed] $attributes
+     * @param [mixed] $callback
+     * @return void
+     */
     public static function group($attributes, $callback): void
     {
         $previousGroupAttribute  = static::$groupAttributes;
@@ -90,7 +86,7 @@ class Router
     public static function dispatch($uri = '/', $method)
     {
         $basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-        $cleanedUri = trim(str_replace([$basePath, static::public_path()], '', $uri), '/');
+        $cleanedUri = trim(str_replace([$basePath, '/' . ROOT_DIR . '/'], '', $uri), '/');
         $cleanedUri = empty($cleanedUri) ? '/' : $cleanedUri;
         $method = strtoupper($method);
 
@@ -133,6 +129,6 @@ class Router
                 }
             }
         }
-        throw new \Exception('This route "' . $cleanedUri . '" was not found');
+        throw new Log('This route "' . $cleanedUri . '" was not found');
     }
 }

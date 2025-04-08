@@ -8,7 +8,7 @@ namespace Illuminates\Router;
 class Segment
 {
     public static function uri(){
-        return str_replace('/back_end/07-MVC/public/', '', $_SERVER['REQUEST_URI']);
+        return str_replace(ROOT_DIR , '', $_SERVER['REQUEST_URI']);
     }
     public static function get(int $offset):string {
         $uri = static::uri();

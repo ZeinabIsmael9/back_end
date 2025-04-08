@@ -5,7 +5,7 @@ if (!function_exists('url')) {
     function url(string $url = ''): string {
         // var_dump($_SERVER['HTTP_HOST']);
         // $basePath = '/back_end/07-MVC/public/';
-        return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/back_end/07-MVC/public/' . ltrim($url, '/');
+        return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . ROOT_DIR . ltrim($url, '/');
     }
 }
 
@@ -13,6 +13,13 @@ if (!function_exists('base_path')) {
     function base_path(string $file = null)
     {
         return ROOT_PATH . '/../' . $file;
+    }
+}
+
+if (!function_exists('storage_path')) {
+    function storage_path(string $file = null)
+    {
+        return !is_null($file)?base_path('storage').'/'.$file : "";
     }
 }
 
@@ -71,3 +78,5 @@ if(!function_exists('decrypt')) {
         return \Illuminates\Hashes\Hash::decrypt($value);
     } 
 }
+
+
