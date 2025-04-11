@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+// use Illuminates\Views\View;
+
 class HomeController
 {
     public function index()
     {
-        echo 'Welcome To index page!';
+        $title = 'index page';
+        $content = 'Welcome To index page';
+        $name = 'zeinab';
+        return view('index', compact('title', 'content', 'name'));
+        // echo 'Welcome To index page!';
     }
 
     public function about()

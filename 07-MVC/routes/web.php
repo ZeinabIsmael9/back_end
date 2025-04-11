@@ -23,29 +23,28 @@ use Illuminates\Sessions\Session;
 // });
 
 
-
-
+Route::get('/', [HomeController::class, 'index']);
 // Route::get('/', function () {
 //     return 'Welcome to home page!';
-// }, ['simple', 'admin', 'user']); // Middleware يتم تمريره هنا
+// });
 
 Route::group(['prefix' => 'site'], function () {
     Route::get('/', function () {
         return 'welcome to site index page!';
-        });
-    Route::get('contact', fn () => 'welcome to contact page!');
+    });
+    Route::get('contact', fn() => 'welcome to contact page!');
 
     Route::get('/article/{id}/{name}', function ($id, $name) {
         return 'welcome to site article page! ' . $id . ' ' . $name;
     });
     Route::get('/about', function () {
-                return 'Welcome to About Web Route!';
-            });
-        });
+        return 'Welcome to About Web Route!';
+    });
+});
 
 // Route::get('contact', fn()=> 'welcome to contact page!');
 
-// // Route::get('/', HomeController::class , 'index');
+// Route::get('/', HomeController::class , 'index');
 // Route::get('/', function () {
 //     return 'welcome to index page';
 // },[/*SimpleMiddleware::class,*/'simple,admin']);

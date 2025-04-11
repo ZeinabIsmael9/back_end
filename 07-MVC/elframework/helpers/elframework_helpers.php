@@ -1,8 +1,17 @@
 <?php
 
 
+if (!function_exists('view')) {
+    function view(string $view, null|array $data): mixed
+    {
+        return \Illuminates\Views\View::make($view, $data);
+    }
+}
+
+
 if (!function_exists('url')) {
-    function url(string $url = ''): string {
+    function url(string $url = ''): string
+    {
         // var_dump($_SERVER['HTTP_HOST']);
         // $basePath = '/back_end/07-MVC/public/';
         return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . ROOT_DIR . ltrim($url, '/');
@@ -19,14 +28,14 @@ if (!function_exists('base_path')) {
 if (!function_exists('storage_path')) {
     function storage_path(string $file = null)
     {
-        return !is_null($file)?base_path('storage').'/'.$file : "";
+        return !is_null($file) ? base_path('storage') . '/' . $file : "";
     }
 }
 
 if (!function_exists('route_path')) {
     function route_path(string $file = null)
     {
-        return !is_null($file)?config('route.path').'/'.$file : config('route.path');
+        return !is_null($file) ? config('route.path') . '/' . $file : config('route.path');
     }
 }
 
@@ -45,38 +54,41 @@ if (!function_exists('config')) {
 
 
 
-if(!function_exists('public_path')) {
-    function public_path(string $file = null)   {
-        return !empty($file) ? getcwd().'/'.$file : getcwd();
+if (!function_exists('public_path')) {
+    function public_path(string $file = null)
+    {
+        return !empty($file) ? getcwd() . '/' . $file : getcwd();
         //return !is_null($file)?config('public.path').'/'.$file : config('public.path');
     }
 }
 
 
-if(!function_exists('bcrypt')) {
-    function bcrypt(string $str) {
+if (!function_exists('bcrypt')) {
+    function bcrypt(string $str)
+    {
         return \Illuminates\Hashes\Hash::make($str);
     }
 }
 
-if(!function_exists('hash_check')) {
-    function hash_check(string $pass, string $hash) {
-        return \Illuminates\Hashes\Hash::check($pass,$hash);
+if (!function_exists('hash_check')) {
+    function hash_check(string $pass, string $hash)
+    {
+        return \Illuminates\Hashes\Hash::check($pass, $hash);
     }
 }
 
 
-if(!function_exists('encrypt')) {
-    function encrypt(string $value) {
+if (!function_exists('encrypt')) {
+    function encrypt(string $value)
+    {
         return \Illuminates\Hashes\Hash::encrypt($value);
     }
 }
 
 
-if(!function_exists('decrypt')) {
-    function decrypt(string $value) {       
+if (!function_exists('decrypt')) {
+    function decrypt(string $value)
+    {
         return \Illuminates\Hashes\Hash::decrypt($value);
-    } 
+    }
 }
-
-

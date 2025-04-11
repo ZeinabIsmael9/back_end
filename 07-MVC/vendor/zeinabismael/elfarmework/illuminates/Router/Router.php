@@ -26,7 +26,12 @@ class Router
      */
     public static function add(string $method, string $route, $controller, $action = null, array $middleware = [])
     {
-        $route  = self::applyGroupPrefix($route);
+        if (is_array($controller) && count($controller) === 2) {
+            list($controllerClass, $actionMethod) = $controller;
+            $controller = $controllerClass;
+            $action = $actionMethod;
+        }
+        $route = self::applyGroupPrefix($route);
         $middleware = array_merge(static::getGroupMiddleware(), $middleware);
         self::$routes[] = [
             'method' => $method,
@@ -99,31 +104,29 @@ class Router
                     $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
 
                     $controller = $route['controller'];
-                    if (is_object($controller)) {
-                        $middlewareStack = $route['action'];
+                    $action = $route['action'];
+                    $middlewareStack = $route['middleware'];
+
+                    if (is_string($controller) && class_exists($controller)) {
+                        $next = function ($request) use ($controller, $action, $params) {
+                            if (method_exists($controller, $action)) {
+                                return call_user_func_array([new $controller, $action], $params);
+                            }
+                            throw new \Exception("Method {$action} does not exist in controller {$controller}");
+                        };
+                    } elseif (is_object($controller) && is_callable($controller)) {
                         $next = function ($request) use ($controller, $params) {
                             return $controller(...$params);
                         };
-
-                        $next = Middleware::handleMiddleware($middlewareStack, $next);
-                        if (is_callable($next)) {
-                            echo $next($cleanedUri);
-                        } else {
-                            throw new \Exception('Middleware stack returned a non-callable response.');
-                        }
                     } else {
-                        $action = $route['action'];
-                        $middlewareStack = $route['middleware'];
-                        $next = function ($request) use ($controller, $action, $params) {
-                            return call_user_func_array([new $controller, $action], $params);
-                        };
+                        throw new \Exception("Invalid controller: " . print_r($controller, true));
+                    }
 
-                        $next = Middleware::handleMiddleware($middlewareStack, $next);
-                        if (is_callable($next)) {
-                            echo $next($cleanedUri);
-                        } else {
-                            throw new \Exception('Middleware stack returned a non-callable response.');
-                        }
+                    $next = Middleware::handleMiddleware($middlewareStack, $next);
+                    if (is_callable($next)) {
+                        echo $next($cleanedUri);
+                    } else {
+                        throw new \Exception('Middleware stack returned a non-callable response.');
                     }
                     return;
                 }
