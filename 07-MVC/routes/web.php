@@ -3,6 +3,7 @@
 use App\HTTP\Controllers\HomeController;
 use App\Http\Middleware\SimpleMiddleware;
 use App\Http\Middleware\UserMiddleware;
+use Illuminates\FrameworkSetting;
 use Illuminates\Router\Route;
 use Illuminates\Sessions\Session;
 
@@ -25,6 +26,8 @@ use Illuminates\Sessions\Session;
 
 // Route::get('/', [HomeController::class, 'index']);
 Route::get('/', function () {
+    // FrameworkSetting::setlocale('en');
+    return FrameworkSetting::getlocale();
     return Session::get('locale');
 });
 
