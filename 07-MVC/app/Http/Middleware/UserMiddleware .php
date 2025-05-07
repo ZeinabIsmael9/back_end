@@ -16,9 +16,10 @@ class UserMiddleware implements Contract
      */
     public function handle($request, $next, ...$role)
     {
-        if ($role[0] == 'user') {
-            header('Location: ' . url('about'));
-            exit;
-        }        return $next($request);
+        // if ($role[0] == 'user') {
+        //     header('Location: ' . url('about'));
+        //     exit;
+        // }   
+        return $next($request);
     }
 }

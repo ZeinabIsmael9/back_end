@@ -23,16 +23,16 @@ use Illuminates\Sessions\Session;
 // });
 
 
-Route::get('/', [HomeController::class, 'index']);
-// Route::get('/', function () {
-//     return 'Welcome to home page!';
-// });
+// Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return Session::get('locale');
+});
 
-Route::group(['prefix' => 'site'], function () {
+Route::group(['prefix' => '/site/'], function () {
     Route::get('/', function () {
         return 'welcome to site index page!';
     });
-    Route::get('contact', fn() => 'welcome to contact page!');
+    Route::get('/contact', fn() => 'welcome to contact page!');
 
     Route::get('/article/{id}/{name}', function ($id, $name) {
         return 'welcome to site article page! ' . $id . ' ' . $name;

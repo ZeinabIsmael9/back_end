@@ -1,6 +1,9 @@
 <?php
 define("ROOT_PATH", dirname(__FILE__));
 define("ROOT_DIR",'/public/');
+//UTC
+// var_dump(date_default_timezone_get(),date('Y-m-d H:i:s'));
+// echo "<br>";
 /**
  * Run Composer Autoloader
  */
@@ -10,6 +13,10 @@ require __DIR__ . '/../vendor/autoload.php';
  *  Run the frame work
  */
 (new \Illuminates\Application)->start();
+//Set Time Zone
+// var_dump(date_default_timezone_get(),date('Y-m-d H:i:s'));
+// في index.php أو ملف التحميل الرئيسي
+
 //OR
 // use App\Illuminates\Application
 // $application = new Application;

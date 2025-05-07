@@ -19,28 +19,28 @@ if (!function_exists('url')) {
 }
 
 if (!function_exists('base_path')) {
-    function base_path(string $file = null)
+    function base_path(string $file )
     {
         return ROOT_PATH . '/../' . $file;
     }
 }
 
 if (!function_exists('storage_path')) {
-    function storage_path(string $path = null)
+    function storage_path(string $path )
     {
         return !is_null($path) ? base_path('storage') . '/' . $path : "";
     }
 }
 
 if (!function_exists('route_path')) {
-    function route_path(string $file = null)
+    function route_path(string $file )
     {
         return !is_null($file) ? config('route.path') . '/' . $file : config('route.path');
     }
 }
 
 if (!function_exists('config')) {
-    function config(string $file = null)
+    function config(string $file )
     {
         $seprate = explode('.', $file);
         if ((!empty($seprate) && count($seprate) > 1) && !is_null($file)) {
@@ -55,7 +55,7 @@ if (!function_exists('config')) {
 
 
 if (!function_exists('public_path')) {
-    function public_path(string $file = null)
+    function public_path(string $file )
     {
         return !empty($file) ? getcwd() . '/' . $file : getcwd();
         //return !is_null($file)?config('public.path').'/'.$file : config('public.path');

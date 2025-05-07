@@ -29,4 +29,10 @@ class HomeController
     {
         echo 'Welcome To contact page!';
     }
+
+    public function api_any()
+    {
+        echo 'Welcome To api_any page!';
+    }
+
 }
