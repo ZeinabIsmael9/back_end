@@ -33,7 +33,7 @@ Route::get('/', function () {
     // return Lang::has('name');-> 1
     // return Lang::get('main.name');
     // return Lang::get('name'); /* OR */ return trans('main.name');  return trans()->get('edit');
-    return trans('add');
+    return trans('main.add');
 
 });
 
