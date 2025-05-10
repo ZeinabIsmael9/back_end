@@ -1,6 +1,17 @@
 <?php
 
 
+if (!function_exists('trans')) {
+    function trans(string $trans = ''): string|object
+    {
+        return
+            !empty($trans) ? \Illuminates\Locales\Lang::get($trans)
+            : new \Illuminates\Locales\Lang;
+    }
+}
+
+
+
 if (!function_exists('view')) {
     function view(string $view, null|array $data): mixed
     {
@@ -19,28 +30,28 @@ if (!function_exists('url')) {
 }
 
 if (!function_exists('base_path')) {
-    function base_path(string $file )
+    function base_path(string $file)
     {
         return ROOT_PATH . '/../' . $file;
     }
 }
 
 if (!function_exists('storage_path')) {
-    function storage_path(string $path )
+    function storage_path(string $path)
     {
         return !is_null($path) ? base_path('storage') . '/' . $path : "";
     }
 }
 
 if (!function_exists('route_path')) {
-    function route_path(string $file )
+    function route_path(string $file)
     {
         return !is_null($file) ? config('route.path') . '/' . $file : config('route.path');
     }
 }
 
 if (!function_exists('config')) {
-    function config(string $file )
+    function config(string $file)
     {
         $seprate = explode('.', $file);
         if ((!empty($seprate) && count($seprate) > 1) && !is_null($file)) {
@@ -55,7 +66,7 @@ if (!function_exists('config')) {
 
 
 if (!function_exists('public_path')) {
-    function public_path(string $file )
+    function public_path(string $file)
     {
         return !empty($file) ? getcwd() . '/' . $file : getcwd();
         //return !is_null($file)?config('public.path').'/'.$file : config('public.path');

@@ -4,6 +4,7 @@ use App\HTTP\Controllers\HomeController;
 use App\Http\Middleware\SimpleMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminates\FrameworkSetting;
+use Illuminates\Locales\Lang;
 use Illuminates\Router\Route;
 use Illuminates\Sessions\Session;
 
@@ -26,9 +27,14 @@ use Illuminates\Sessions\Session;
 
 // Route::get('/', [HomeController::class, 'index']);
 Route::get('/', function () {
-    // FrameworkSetting::setlocale('en');
-    return FrameworkSetting::getlocale();
-    return Session::get('locale');
+     FrameworkSetting::setlocale('en');
+    // return FrameworkSetting::getlocale();
+    // return Session::get('locale');
+    // return Lang::has('name');-> 1
+    // return Lang::get('main.name');
+    // return Lang::get('name'); /* OR */ return trans('main.name');  return trans()->get('edit');
+    return trans('add');
+
 });
 
 Route::group(['prefix' => '/site/'], function () {
