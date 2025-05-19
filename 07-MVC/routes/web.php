@@ -27,14 +27,13 @@ use Illuminates\Sessions\Session;
 
 // Route::get('/', [HomeController::class, 'index']);
 Route::get('/', function () {
-     FrameworkSetting::setlocale('en');
+    FrameworkSetting::setlocale('en');
     // return FrameworkSetting::getlocale();
     // return Session::get('locale');
     // return Lang::has('name');-> 1
     // return Lang::get('main.name');
     // return Lang::get('name'); /* OR */ return trans('main.name');  return trans()->get('edit');
-    return trans('main.add');
-
+    return trans('main.welcome', ['name' => 'zeinab', 'age' => 20]);
 });
 
 Route::group(['prefix' => '/site/'], function () {

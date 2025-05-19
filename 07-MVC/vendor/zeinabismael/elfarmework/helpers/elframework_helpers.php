@@ -2,10 +2,10 @@
 
 
 if (!function_exists('trans')) {
-    function trans(string $trans = ''): string|object
+    function trans(string $trans = '' , array $attributes = []): string|object
     {
         return
-            !empty($trans) ? \Illuminates\Locales\Lang::get($trans)
+            !empty($trans) ? \Illuminates\Locales\Lang::get($trans, $attributes)
             : new \Illuminates\Locales\Lang;
     }
 }

@@ -13,5 +13,6 @@ return[
     'cancel' => 'الغاء',
     'confirm' => 'تاكيد',
     'yes' => 'نعم',
-    'no' => 'لا'
+    'no' => 'لا',
+    'welcome' => 'اهلا بك يا :name :age', 
 ];
