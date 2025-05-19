@@ -25,16 +25,17 @@ use Illuminates\Sessions\Session;
 // });
 
 
-// Route::get('/', [HomeController::class, 'index']);
-Route::get('/', function () {
-    FrameworkSetting::setlocale('en');
-    // return FrameworkSetting::getlocale();
-    // return Session::get('locale');
-    // return Lang::has('name');-> 1
-    // return Lang::get('main.name');
-    // return Lang::get('name'); /* OR */ return trans('main.name');  return trans()->get('edit');
-    return trans('main.welcome', ['name' => 'zeinab', 'age' => 20]);
-});
+Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', function () {
+//     // return FrameworkSetting::getlocale();
+//     // return Session::get('locale');
+//     // return Lang::has('name');-> 1
+//     // return Lang::get('main.name');
+//     // return Lang::get('name'); /* OR */ return trans('main.name');  return trans()->get('edit');
+//     //     FrameworkSetting::setlocale('en');
+//     // return trans('main.welcome', ['name' => 'zeinab', 'age' => 20]);
+//     return view('index', ['name' => 'zeinab', 'age' => 20]);
+// });
 
 Route::group(['prefix' => '/site/'], function () {
     Route::get('/', function () {

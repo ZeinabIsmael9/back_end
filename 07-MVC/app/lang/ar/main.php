@@ -1,6 +1,6 @@
 <?php 
 return[
-    'name'=>'الفريم وورك',
+    'name'=>'الاسم',
     'home' => 'الصفحة الرئيسية',
     'about' => 'من نحن',
     'contact' => 'اتصل بنا',
@@ -14,5 +14,6 @@ return[
     'confirm' => 'تاكيد',
     'yes' => 'نعم',
     'no' => 'لا',
-    'welcome' => 'اهلا بك يا :name :age', 
+    'welcome' => 'اهلا بك يا :name :age',
+    'age' => 'العمر'
 ];

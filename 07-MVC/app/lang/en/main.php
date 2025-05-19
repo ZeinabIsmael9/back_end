@@ -14,5 +14,7 @@ return[
     'cancel' => 'Cancel',
     'confirm' => 'Confirm',
     'yes' => 'Yes',
-    'no' => 'No'
+    'no' => 'No',
+    'name' => 'Name',
+    'age' => 'Age'
 ];
