@@ -19,9 +19,8 @@ class Lang
         if (file_exists($path)) {
             $json = file_get_contents($path);
             $lang = json_decode($json, true);
-            return isset($lang[$key]) ? self::attribute($lang[$key], $attributes) : null;
         }
-        return null;
+            return isset($lang[$key]) ? self::attribute($lang[$key], $attributes) : null;
     }
 
     /**
@@ -36,10 +35,11 @@ class Lang
         $path = base_path('app/lang/' . $locale . '/' . $key[0] . '.php');
         if (file_exists($path)) {
             $lang = include $path;
+        }
             return isset($key[1]) ? self::attribute($lang[$key[1]], $attributes) : null;
         }
-        return null;
-    }
+        
+    
 
     /**
      * @param array $key
@@ -53,6 +53,7 @@ class Lang
             ? self::loadPhpTranslation($key, $locale, $attributes) // هنا!
             : self::loadJsonTranslation($key[0], $locale, $attributes); // وهنا!
     }
+
 
     /**
      * @param string $trans
@@ -119,7 +120,6 @@ class Lang
         foreach ($attributes as $key => $value) {
             $new_value = str_replace(':' . $key, $value, $new_value);
         }
-
         return $new_value;
     }
 }

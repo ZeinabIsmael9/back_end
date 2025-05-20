@@ -16,5 +16,6 @@ return[
     'yes' => 'Yes',
     'no' => 'No',
     'name' => 'Name',
-    'age' => 'Age'
+    'age' => 'Age',
+    'info' => 'Info'
 ];

@@ -12,12 +12,16 @@ class HomeController extends Controller
     {
         $validation =Validation::make([
             'name' => $_GET ['name'], //inputs
+            'info' => $_GET ['info'],
             'age' => $_GET ['age']
         ],[
-            'name' => ['required', 'string'], //rules[string] //'required|string',
-            'age' => 'required|integer'
+            'name' => 'required|string', //rules[string] //'required|string',
+            // 'info' => 'required|json',
+            'info' => 'required|array',
+            'age' => 'required|numeric'
         ],[
             'name' => trans('main.name'),
+            'info' => trans('main.info'),
             'age' => trans('main.age')
         ]);
         return $validation;
