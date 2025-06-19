@@ -8,6 +8,7 @@ for( $index = 0; $index < count($arr); $index++){
     echo "$index <br>";
 }
 echo "<hr>";
+
 //for each 
 
 foreach($arr as $value){

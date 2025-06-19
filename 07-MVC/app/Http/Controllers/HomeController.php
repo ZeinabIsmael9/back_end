@@ -10,19 +10,19 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $validation =Validation::make([
-            'name' => $_GET ['name'], //inputs
-            'info' => $_GET ['info'],
-            'age' => $_GET ['age']
-        ],[
+        $validation = Validation::make([
+            'name' => $_GET['name'] ?? '', //inputs
+            'info' => $_GET['info'] ?? [],
+        ], [
             'name' => 'required|string', //rules[string] //'required|string',
             // 'info' => 'required|json',
             'info' => 'required|array',
-            'age' => 'required|numeric'
-        ],[
+            'info.0' => 'integer',
+        ], [
             'name' => trans('main.name'),
             'info' => trans('main.info'),
-            'age' => trans('main.age')
+            // 'info.*' => trans('main.info'),
+            // 'info.0' => trans('main.info'),
         ]);
         return $validation;
         // $title = 'index page';
@@ -51,5 +51,4 @@ class HomeController extends Controller
     {
         echo 'Welcome To api_any page!';
     }
-
 }
