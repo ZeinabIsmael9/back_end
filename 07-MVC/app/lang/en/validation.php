@@ -9,4 +9,7 @@ return [
     'image' => 'this field  :attribute is image',
     "json" => "this field  :attribute is json",
     "array" => "this field  :attribute is array",
+    'in' => 'this field  :attribute is in',
+    'email' => 'this field  :attribute is email',
+    'exists' => 'this field  :attribute does not exists',
 ];

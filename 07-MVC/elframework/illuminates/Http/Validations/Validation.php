@@ -2,14 +2,16 @@
 
 namespace Illuminates\Http\Validations;
 
+use Illuminates\Http\Validations\Types\CheckInArrayValidations;
 use Illuminates\Http\Validations\Types\DataTypeValidations;
+use Illuminates\Http\Validations\Types\QueryValidations;
 use Illuminates\Logs\Log;
 
 class Validation
 {
-    use DataTypeValidations;
-
+    use DataTypeValidations, CheckInArrayValidations, QueryValidations;
     protected static $errors = [];
+    protected static $validated = [];
 
     public static function request(array|object $request, string $key)
     {
@@ -25,21 +27,72 @@ class Validation
             $attribute = self::attribute($attributes, $reel_rule_key);
 
             foreach (array_values(self::rule($rule_value)) as $rule) {
-                if (!method_exists(new self, $rule)) {
-                    throw new Log('There is no validation called ' . $rule);
-                } elseif (preg_match("/\./i", $rule_key)) {
+                $method = self::getMethodName($rule);
+                if (!method_exists(new self, $method)) {
+                    throw new Log('There is no validation called ' . $method . ' in the Validation class.');
+                } elseif (preg_match("/^in:/i", $rule) || preg_match("/^unique:/i", $rule) || preg_match("/^exists:/i", $rule)) {
+                    if (!self::$method($rule, $value)) {
+                        if (preg_match("/^in:/i", $rule)) {
+                            $attribute_in = explode(':', $rule);
+                            self::add_error($rule_key, $method, $attribute);
+                            $attribute = $attribute . ' - ' . $attribute_in[1];
+                        } else {
+                            $attribute = $attribute;
+                        }
+                        self::add_error($rule_key, $method, $attribute);
+                    }
+                }
+                // elseif (preg_match("/^unique:/i", $rule)) {
+                //     if (!self::$method($rule, $value)) {
+                //         // var_dump($rule);
+                //         self::add_error($rule_key, $method, $attribute);
+                //     }
+                // }  elseif (preg_match("/^exists:/i", $rule)) {
+                //     if (!self::$method($rule, $value)) {
+                //         // var_dump($rule);
+                //         self::add_error($rule_key, $method, $attribute);
+                //     }
+                // } 
+                elseif (preg_match("/\./", $rule_key)) {
                     self::validate_sub_value($rule_key, $requests, $rule, $attribute);
-                } elseif (self::$rule($value)) {
+                } elseif (self::$method($value)) {
                     self::add_error($rule_key, $rule, $attribute);
+                } else {
+                    self::$validated[$rule_key] = $value;
                 }
             }
         }
-
         echo '<pre>';
+        // var_dump(static::$validated);
         var_dump(static::$errors);
         echo '</pre>';
     }
 
+    /**
+     *
+     * @param mixed $rule
+     * @return void
+     */
+    protected static function getMethodName(mixed $rule): string
+    {
+        if (preg_match("/^in:/i", $rule)) {
+            return 'in';
+        } elseif (preg_match("/^unique:/", $rule)) {
+            return 'unique';
+        } elseif (preg_match("/^exists:/", $rule)) {
+            return 'exists';
+        } else {
+            return $rule;
+        }
+    }
+    /**
+     * @param mixed $rule_key
+     * @param mixed $requests
+     * @param mixed $rule
+     * @param mixed $attribute
+     * 
+     * @return [type]
+     */
     protected static function validate_sub_value($rule_key, $requests, $rule, $attribute)
     {
         $split_key = explode('.', $rule_key);

@@ -17,5 +17,7 @@ return[
     'no' => 'No',
     'name' => 'Name',
     'age' => 'Age',
-    'info' => 'Info'
+    'info' => 'Info',
+    'email' => 'Email',
+    'user_id' => 'User ID',
 ];

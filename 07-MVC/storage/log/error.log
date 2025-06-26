@@ -187,3 +187,7 @@
 2025-05-20 02:37:52 - Error There is no method called required in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 26
 2025-05-20 02:42:24 - Error There is no validation called required in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 22
 2025-05-20 02:43:59 - Error There is no validation called integer in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 22
+2025-06-25 23:48:10 - Error There is no validation called in:zeinab,ismael in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 44
+2025-06-25 23:49:04 - Error There is no validation called in:zeinab,ismael in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 44
+2025-06-25 23:51:05 - Error There is no validation called in:zeinab,ismael in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 41
+2025-06-26 03:26:12 - Error There is no validation called unique:users,id in the Validation class. in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 32

@@ -11,16 +11,20 @@ class HomeController extends Controller
     public function index()
     {
         $validation = Validation::make([
-            'name' => $_GET['name'] ?? '', //inputs
-            'info' => $_GET['info'] ?? [],
+            // 'email' => $_GET['email'] ?? '', //inputs
+            'user_id' => $_GET['user_id'] ?? '',
+            // 'info' => $_GET['info'] ?? [],
         ], [
-            'name' => 'required|string', //rules[string] //'required|string',
+            // 'email' => 'required|string|email',
+            'user_id' => ['required', 'integer', 'unique:users,id=1'],
+            // 'name'=>'required|string|in:zeinab,ismael',//rules[string] //'required|string',
             // 'info' => 'required|json',
-            'info' => 'required|array',
-            'info.0' => 'integer',
+            // 'info' => 'required|array',
+            // 'info.0' => 'integer',
         ], [
-            'name' => trans('main.name'),
-            'info' => trans('main.info'),
+            // 'email' => trans('main.email'),
+            'user_id' => trans('main.user_id'),
+            // 'info' => trans('main.info'),
             // 'info.*' => trans('main.info'),
             // 'info.0' => trans('main.info'),
         ]);
