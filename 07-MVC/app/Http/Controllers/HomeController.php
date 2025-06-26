@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminates\Http\Validations\Validation;
-
 // use Illuminates\Views\View;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $validation = Validation::make([
+        $validation = $this->validated([
             // 'email' => $_GET['email'] ?? '', //inputs
             'user_id' => $_GET['user_id'] ?? '',
             // 'info' => $_GET['info'] ?? [],
         ], [
             // 'email' => 'required|string|email',
-            'user_id' => ['required', 'integer', 'unique:users,id=1'],
+            'user_id' => ['required', 'integer'],
             // 'name'=>'required|string|in:zeinab,ismael',//rules[string] //'required|string',
             // 'info' => 'required|json',
             // 'info' => 'required|array',
@@ -28,7 +26,9 @@ class HomeController extends Controller
             // 'info.*' => trans('main.info'),
             // 'info.0' => trans('main.info'),
         ]);
-        return $validation;
+
+        echo "<pre>";
+        return var_dump($validation->failed());
         // $title = 'index page';
         // $content = 'Welcome To index page';
         // $name = 'zeinab';
