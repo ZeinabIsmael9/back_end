@@ -73,15 +73,22 @@ class Validation
     }
 
 
+
+
     /**
-     * Get the validated data.
+     * Retrieve the validated data after the validation checks.
      *
-     * @return array
+     * @return array An associative array containing the validated inputs.
      */
 
     public static function validated()
     {
         return static::$validated;
+    /**
+     * Get the validated data.
+     *
+     * @return array
+     */
     }
 
     /**

@@ -1,8 +1,21 @@
 <?php
 
 
+if (!function_exists('request')) {
+    function request(string $name = '', mixed $default = null)
+    {
+        if (empty($name)) {
+            return \Illuminates\Http\Request::all();
+        } else {
+            return \Illuminates\Http\Request::get($name, $default);
+        }
+    }
+}
+
+
+
 if (!function_exists('trans')) {
-    function trans(string $trans = '' , array $attributes = []): string|object
+    function trans(string $trans = '', array $attributes = []): string|object
     {
         return
             !empty($trans) ? \Illuminates\Locales\Lang::get($trans, $attributes)
@@ -13,7 +26,7 @@ if (!function_exists('trans')) {
 
 
 if (!function_exists('view')) {
-    function view(string $view, null|array $data): mixed
+    function view(string $view, null|array $data=[]): mixed
     {
         return \Illuminates\Views\View::make($view, $data);
     }
@@ -24,8 +37,8 @@ if (!function_exists('url')) {
     function url(string $url = ''): string
     {
         // var_dump($_SERVER['HTTP_HOST']);
-        // $basePath = '/back_end/07-MVC/public/';
-        return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . ROOT_DIR . ltrim($url, '/');
+        $basePath = '/back_end/07-MVC/public/';
+        return $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $basePath . ltrim($url, '/');
     }
 }
 

@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminates\Http\Request;
+
 // use Illuminates\Views\View;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        var_dump(request('name', 'ismael'));
+        exit;
         $validation = $this->validated([
             // 'email' => $_GET['email'] ?? '', //inputs
             'user_id' => $_GET['user_id'] ?? '',
@@ -35,6 +39,21 @@ class HomeController extends Controller
         // return view('index', compact('title', 'content', 'name'));
         // echo 'Welcome To index page!';
     }
+
+    public function data()
+    {
+        // return view('data');
+        include base_path('app/views/data.tpl.php');
+    }
+
+public function data_post()
+{
+    $file = Request::file('file');
+     $file->name(uniqid('', true).rand(1, 100));
+    $file->store('my/images');
+    return Request::file('file')->store('data');
+}
+
 
     public function about()
     {

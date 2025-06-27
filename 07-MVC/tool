@@ -1,0 +1,20 @@
+<?php
+
+if (php_sapi_name() == "cli") {
+    $str = $_SERVER['argv'];
+    if ($str[1] == "storage:link") {
+        $target = __DIR__ . "\storage\public";
+        $link = __DIR__ . "\public\storage";
+        if (file_exists($link)) {
+            echo "Storage already linked" . PHP_EOL;
+        } else {
+            $cmd = "mklink /D \"$link\" \"$target\"";
+            exec($cmd, $output, $result);
+            if ($result === 0) {
+                echo "Storage Linked" . PHP_EOL;
+            } else {
+                echo "Failed to create symbolic link. Try running CMD as Administrator." . PHP_EOL;
+            }
+        }
+    }
+}

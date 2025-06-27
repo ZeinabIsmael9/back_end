@@ -29,9 +29,9 @@ trait Methods
     public static function post(string $route, $controller, $action, array $middlewares = []):void
     {
         parent::add('POST',  $route, $controller, $action,  $middlewares );
-
     } 
 
+    
     /**
      * @param string $route
      * @param mixed $controller

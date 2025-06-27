@@ -191,3 +191,7 @@
 2025-06-25 23:49:04 - Error There is no validation called in:zeinab,ismael in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 44
 2025-06-25 23:51:05 - Error There is no validation called in:zeinab,ismael in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 41
 2025-06-26 03:26:12 - Error There is no validation called unique:users,id in the Validation class. in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Http\Validations\Validation.php on line 32
+2025-06-26 19:32:36 - Error This route "about" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-26 20:09:47 - Error This route "data.tpl.php" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-26 20:28:41 - Error This route "index" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 17:36:36 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
