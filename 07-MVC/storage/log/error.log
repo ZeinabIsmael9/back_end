@@ -195,3 +195,40 @@
 2025-06-26 20:09:47 - Error This route "data.tpl.php" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
 2025-06-26 20:28:41 - Error This route "index" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
 2025-06-27 17:36:36 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 19:21:06 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 19:39:19 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 19:39:53 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 19:39:54 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 19:39:55 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:51:26 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:53:54 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:54:27 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:55:24 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 14
+2025-06-27 21:55:24 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:58:40 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:58:40 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:58:42 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:58:42 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:58:43 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:58:43 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:58:58 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:58:58 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:59:57 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:59:57 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 21:59:57 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 21:59:57 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:00:00 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:00:00 - Error This route "/" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:00:08 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:00:08 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:01:00 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:01:00 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:01:01 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:01:01 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:01:01 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:01:01 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:01:01 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:01:01 - Error This route "data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:02:25 - Error Invalid CSRF Token in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Middleware\CSRFToken.php on line 15
+2025-06-27 22:02:25 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135
+2025-06-27 22:19:05 - Error This route "send/data" was not found in E:\xampp\htdocs\back_end\07-MVC\elframework\illuminates\Router\Router.php on line 135

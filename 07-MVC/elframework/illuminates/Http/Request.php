@@ -15,13 +15,9 @@ class Request
      * @return mixed The value of the request parameter or the default value if not set.
      */
 
-    public static function get(string $name = '', mixed $default = null)
+    public static function get(string $name = '', mixed $default = null): string
     {
-        if (isset($_REQUEST[$name]) && !empty($_REQUEST[$name])) {
-            return $_REQUEST[$name];
-        } else {
-            return $default;
-        }
+        return isset($_REQUEST[$name]) && !empty($_REQUEST[$name])?$_REQUEST[$name]:$default??'';
     }
 
     /**
@@ -71,12 +67,9 @@ class Request
      * @return string
      */
     /*******  1189bbc4-179d-433f-a6f4-67179cd8c2d9  *******/
-    public static function name(string $name =''): string
+    public static function name(string $name = ''): string
     {
-        if ($name) {
-            static::$name = $name;
-        }
-        return static::$name;
+        return !empty($name) ? $name : static::$name;
     }
 
 
@@ -86,7 +79,7 @@ class Request
      * @param string $to The path to store the file.
      * @return string|bool The path of the stored file or false if the file is not stored.
      */
-    
+
     public static function store(string $to): bool|string
     {
         $from = static::$file;
@@ -96,11 +89,11 @@ class Request
             $to_path = '/' . ltrim($to, '/');
             $path = config('storage.storage_path') . $to_path;
             if (!is_dir($path)) {
-                mkdir($path, 0755, true);
+                mkdir($path, 0777, true);
             }
             $file = $path . '/' . static::$name . '.' . static::$ext;
             move_uploaded_file($from['tmp_name'], $file);
-            return ltrim( $to_path . '/' . static::$name . '.' . static::$ext,'/');
+            return ltrim($to_path . '/' . static::$name . '.' . static::$ext, '/');
         }
         return false;
     }

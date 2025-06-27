@@ -5,7 +5,8 @@ namespace App;
 class Core
 {
     public static $globalWeb = [
-        \Illuminates\Sessions\Session::class
+        \Illuminates\Sessions\Session::class,
+        \Illuminates\Middleware\CSRFToken::class
     ];
 
     public static $middlewareWebRoute = [

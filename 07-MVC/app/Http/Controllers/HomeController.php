@@ -10,8 +10,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        var_dump(request('name', 'ismael'));
-        exit;
+        // $random = random_bytes(6);
+        // $bin = bin2hex($random);
+        // echo $bin;
+        // exit;
         $validation = $this->validated([
             // 'email' => $_GET['email'] ?? '', //inputs
             'user_id' => $_GET['user_id'] ?? '',
@@ -46,13 +48,14 @@ class HomeController extends Controller
         include base_path('app/views/data.tpl.php');
     }
 
-public function data_post()
-{
-    $file = Request::file('file');
-     $file->name(uniqid('', true).rand(1, 100));
-    $file->store('my/images');
-    return Request::file('file')->store('data');
-}
+    public function data_post()
+    {
+        // $file = Request::file('file');
+        // // $file->name(uniqid('', true) . rand(1, 100));
+        // $file->store('my/images');
+        // return Request::file('file')->store('data');
+        return var_dump( request());
+    }
 
 
     public function about()

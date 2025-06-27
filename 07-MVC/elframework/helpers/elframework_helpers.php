@@ -1,5 +1,21 @@
 <?php
 
+use Illuminates\Sessions\Session;
+
+if (!function_exists('csrf_token')) {
+    function csrf_token(): string
+    {
+        return \Illuminates\Sessions\Session::get('csrf_token');
+    }
+}
+
+if (!function_exists('csrf_failed')) {
+    function csrf_failed(): string
+    {
+        return '<input type="hidden" name="csrf_token" value="' . csrf_token() . '" />';
+    }
+}
+
 
 if (!function_exists('request')) {
     function request(string $name = '', mixed $default = null)
