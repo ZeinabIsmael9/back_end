@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminates\Database\Model;
 use Illuminates\Http\Request;
 
 // use Illuminates\Views\View;
@@ -14,6 +15,7 @@ class HomeController extends Controller
         // $bin = bin2hex($random);
         // echo $bin;
         // exit;
+        var_dump(new Model());
         $validation = $this->validated([
             // 'email' => $_GET['email'] ?? '', //inputs
             'user_id' => $_GET['user_id'] ?? '',
