@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = new User();
-        // $user->name = 'mohamed';
-        var_dump($user->name);
+        $user = User::find(1);
+        // $user = User::where('id','=', 1)->first();
+        return $user->email;
     }
 
     public function data()

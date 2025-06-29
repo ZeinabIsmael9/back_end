@@ -3,24 +3,31 @@
 namespace Illuminates\Database;
 
 use Illuminates\Database\Contracts\DatabaseConnectionInterface;
-use Illuminates\Database\Queires\DBCondations;
 use PDO;
 
 abstract class BaseModel
 {
-    use DBCondations;
-    protected PDO $db;
-    protected static $table;
-    protected $attributes = [];
+    protected static PDO $db;
+    protected  $table;
+    protected static $attributes = [];
     public function __construct(DatabaseConnectionInterface $connect)
     {
-        $this->db = $connect->getPDO();
-        if ($this->table === null) {
-            $this->table = strtolower((new \ReflectionClass(static::class))->getShortName()) . 's';
-        }
-        // var_dump($this->table);
+        self::$db = $connect->getPDO();
     }
 
+    public static function getDBConf(): object
+    {
+        $driver = config('database.driver');
+        return (object) config("database.drivers")[$driver];
+    }
+
+
+    public static function setAttributes( $attributes)
+    {
+        self::$attributes = $attributes;
+    }
+
+    
 
     /**
      * Dynamically set attributes on the model.
@@ -31,7 +38,7 @@ abstract class BaseModel
      */
     public function __set($name, $value): void
     {
-        $this->attributes[$name] = $value;
+        self::$attributes[$name] = $value;
     }
     /**
      * Dynamically retrieve attributes on the model.
@@ -41,6 +48,6 @@ abstract class BaseModel
      */
     public function __get($name): mixed
     {
-        return $this->attributes[$name] ?? null;
+        return self::$attributes[$name] ?? null;
     }
 }
