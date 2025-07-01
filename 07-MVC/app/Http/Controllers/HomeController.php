@@ -11,7 +11,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $users = User::get()->toArray();
+        return User::where('name','LIKE','zeinab')->count();
+        $users = User::take(1)->get()->toArray();
         // var_dump($users);
         foreach ($users as $user) {
             echo $user['name'] . '<br>';

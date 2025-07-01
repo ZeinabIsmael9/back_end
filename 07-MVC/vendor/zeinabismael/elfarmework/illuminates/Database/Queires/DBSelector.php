@@ -3,6 +3,7 @@
 namespace Illuminates\Database\Queires;
 
 use Illuminates\Database\Queires\Collection;
+
 trait DBSelector
 {
     public static function find(int $id): ?static
@@ -34,8 +35,8 @@ trait DBSelector
         if ($data) {
             return new Collection($data);
         }
-            return null;
-        }
+        return null;
+    }
 
     public static function all(): null|array
     {
