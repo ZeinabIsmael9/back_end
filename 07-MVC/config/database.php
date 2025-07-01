@@ -10,7 +10,7 @@ return [
             'port' => 3306,
             'charset' => 'utf8mb4',
             'host' => '127.0.0.1',
-            'FETCH_MODE' => PDO::FETCH_ASSOC,
+            'FETCH_MODE' => PDO::FETCH_OBJ,
             'ERRMODE' => PDO::ERRMODE_EXCEPTION,
             "EXCEPTION" => PDO::ERRMODE_EXCEPTION,
         ],
@@ -19,8 +19,7 @@ return [
             'path' => base_path('storage/db/sqlite.db'),
             'ERRMODE' => PDO::ERRMODE_EXCEPTION,
             "EXCEPTION" => PDO::ERRMODE_EXCEPTION,
-            'FETCH_MODE' => PDO::FETCH_ASSOC,
-
+            'FETCH_MODE' => PDO::FETCH_OBJ,
         ]
     ]
 ];

@@ -11,9 +11,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = User::find(1);
-        // $user = User::where('id','=', 1)->first();
-        return $user->email;
+        $users = User::all();
+        // var_dump($users);
+        foreach ($users as $user) {
+            echo $user->email . '<br>';
+        }
     }
 
     public function data()
