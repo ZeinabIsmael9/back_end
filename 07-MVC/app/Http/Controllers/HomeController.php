@@ -11,10 +11,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::get()->toArray();
         // var_dump($users);
         foreach ($users as $user) {
-            echo $user->email . '<br>';
+            echo $user['name'] . '<br>';
         }
     }
 

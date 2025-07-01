@@ -2,6 +2,7 @@
 
 namespace Illuminates\Database\Queires;
 
+use Illuminates\Database\Queires\Collection;
 trait DBSelector
 {
     public static function find(int $id): ?static
@@ -24,15 +25,19 @@ trait DBSelector
         return null;
     }
 
-    public static function get(null|array $columns = []):null|array
+    public static function get(null|array $columns = []): ?Collection
     {
         $query = static::buildSelectQuery($columns);
         $prepare = parent::$db->prepare($query);
         $prepare->execute(static::getCondationValues());
-        return $prepare->fetchAll(static::getDBConf()->FETCH_MODE);
-    }
+        $data = $prepare->fetchAll(static::getDBConf()->FETCH_MODE);
+        if ($data) {
+            return new Collection($data);
+        }
+            return null;
+        }
 
-    public static function all():null|array
+    public static function all(): null|array
     {
         return static::get();
     }
