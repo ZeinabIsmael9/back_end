@@ -27,22 +27,27 @@ class View
      */
     public static function make($view, null|array $data)
     {
-        if (config('view.cash') == true) {
-            static::prepare_cashe();
-            $cash_file = static::getCashFilePath($view);
-            if (static::isCashValid($cash_file)) {
-                return include $cash_file;
-            } else {
-                $output = static::genrateViewOutPut($view, $data);
-                file_put_contents(static::getCashFilePath($view), $output);
-                return $output;
-            }
-        } else {
-            $view = str_replace('.', '/', $view);
-            $path = config('view.path');
-            extract($data);
-            return include $path . '/' . $view . ".tpl.php";
-        }
+        
+        $view = str_replace('.', '/', $view);
+        $path = config('view.path');
+        extract($data); 
+        include $path.'/'.$view.'.tpl.php';
+        // if (config('view.cash') == true) {
+        //     static::prepare_cashe();
+        //     $cash_file = static::getCashFilePath($view);
+        //     if (static::isCashValid($cash_file)) {
+        //         return include $cash_file;
+        //     } else {
+        //         $output = static::genrateViewOutPut($view, $data);
+        //         file_put_contents(static::getCashFilePath($view), $output);
+        //         return $output;
+        //     }
+        // } else {
+        //     $view = str_replace('.', '/', $view);
+        //     $path = config('view.path');
+        //     extract($data);
+        //     return include $path . '/' . $view . ".tpl.php";
+        // }
     }
 
 

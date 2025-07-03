@@ -65,16 +65,19 @@ trait DBCondations
      *
      * @return string The select query.
      */
-    public static function buildSelectQuery(): string
+    public static function buildSelectQuery(array $columns = [], ?int $limit = null, ?int $offset = null): string
     {
         $table = static::getTable();
-        $columns = implode(',', static::$columns);
+        $columns = !empty($columns) && count($columns) > 0 ? implode(',', $columns) :   implode(',', static::$columns);
         $query = "SELECT {$columns} FROM " . $table;
         if (static::$condations) {
             $condations = array_map(fn($condation) => "{$condation['column']} {$condation['operator']} ?", static::$condations);
             $query .= '  WHERE  ' . implode(' AND ', $condations);
         }
 
+        static::$limit = !empty($limit) && $limit > 0 ? $limit : static::$limit;
+        static::$offset = !empty($offset) && $offset > 0 ? $offset : static::$offset;
+        
         if (!is_null(static::$limit)) {
             $query .= ' LIMIT ' . static::$limit;
         }
@@ -85,19 +88,6 @@ trait DBCondations
         return $query;
     }
 
-
-    public static function count(): int
-    {
-        $query = "SELECT COUNT(*) as count FROM " . static::getTable();
-        if (static::$condations) {
-            $condations = array_map(fn($condation) => "{$condation['column']} {$condation['operator']} ?", static::$condations);
-            $query .= '  WHERE  ' . implode(' AND ', $condations);
-        }
-        $prepare = parent::$db->prepare($query);
-        $prepare->execute(static::getCondationValues());
-        $data = $prepare->fetch(static::getDBConf()->FETCH_MODE);
-        return $data->count ?? 0;
-    }
 
     /**
      * Returns an array of values for the conditions that are present in the query.

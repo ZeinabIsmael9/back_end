@@ -12,11 +12,12 @@
     <div class="container">
         <div class="row">
             <div class="12">
-                <h1>FrameWork Index Page</h1>
-                <div class="p-2 ">Title: index page</div>
-                <div class="p-2 ">Content : Welcome To index page</div>
-                <div class="p-2 ">Name : zeinab</div>
-            </div>
+                <h1>Data Page</h1>
+                <form action="http://localhost/back_end/07-MVC/public/send/data" method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" value="test" class="form-control"/>
+                    <input type="hidden" name="csrf_token" value="ffae653b4c848aecb45bc91941d45d7306155571bb678bebe90bcea1d8d78bcf" />                    <button type="submit" class="btn btn-success">Send</button>
+            </form>
+                </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
